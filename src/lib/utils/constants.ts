@@ -4,6 +4,7 @@ export const NAV_ITEMS = [
   { label: "Composer", href: "/composer", icon: "PenSquare" },
   { label: "Media", href: "/media", icon: "Image" },
   { label: "Links", href: "/links", icon: "Link" },
+  { label: "Link-in-Bio", href: "/bio-manager", icon: "ExternalLink" },
   { label: "Ideen", href: "/ideas", icon: "Lightbulb" },
   { label: "Kampagnen", href: "/campaigns", icon: "Target" },
   { label: "Kanaele", href: "/channels", icon: "Radio" },
