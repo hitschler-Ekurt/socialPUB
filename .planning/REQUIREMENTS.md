@@ -42,12 +42,12 @@
 
 ### Workflow
 
-- [ ] **WRKF-01**: Post has status lifecycle: Draft > In Review > Approved > Scheduled > Published
-- [ ] **WRKF-02**: User can submit a post for review
-- [ ] **WRKF-03**: Reviewer can approve or reject a post with an optional comment
-- [ ] **WRKF-04**: Approved posts can be scheduled for auto-publishing
+- [x] **WRKF-01**: Post has status lifecycle: Draft > In Review > Approved > Scheduled > Published
+- [x] **WRKF-02**: User can submit a post for review
+- [x] **WRKF-03**: Reviewer can approve or reject a post with an optional comment
+- [x] **WRKF-04**: Approved posts can be scheduled for auto-publishing
 - [ ] **WRKF-05**: System auto-publishes scheduled posts at the specified time via Late.dev
-- [ ] **WRKF-06**: Failed publications show error details and allow retry
+- [x] **WRKF-06**: Failed publications show error details and allow retry
 
 ### Media Library
 
@@ -203,12 +203,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | IDEA-02 | Phase 4 | Complete |
 | IDEA-03 | Phase 4 | Complete |
 | IDEA-04 | Phase 4 | Complete |
-| WRKF-01 | Phase 5 | Pending |
-| WRKF-02 | Phase 5 | Pending |
-| WRKF-03 | Phase 5 | Pending |
-| WRKF-04 | Phase 5 | Pending |
+| WRKF-01 | Phase 5 | Complete |
+| WRKF-02 | Phase 5 | Complete |
+| WRKF-03 | Phase 5 | Complete |
+| WRKF-04 | Phase 5 | Complete |
 | WRKF-05 | Phase 5 | Pending |
-| WRKF-06 | Phase 5 | Pending |
+| WRKF-06 | Phase 5 | Complete |
 | BIO-01 | Phase 5 | Pending |
 | BIO-02 | Phase 5 | Pending |
 | BIO-03 | Phase 5 | Pending |

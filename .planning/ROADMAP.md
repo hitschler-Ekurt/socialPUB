@@ -133,5 +133,5 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6
 | 2. Entity Layer | 3/3 | Complete   | 2026-03-13 |
 | 3. Post Composer and Link Engine | 4/4 | Complete   | 2026-03-13 |
 | 4. Editorial Calendar and Ideas Board | 3/3 | Complete   | 2026-03-13 |
-| 5. Publishing Pipeline and Link-in-Bio | 0/4 | Not started | - |
+| 5. Publishing Pipeline and Link-in-Bio | 1/4 | In Progress|  |
 | 6. Polish and Production Readiness | 0/2 | Not started | - |

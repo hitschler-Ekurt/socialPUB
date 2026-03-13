@@ -4,13 +4,13 @@ milestone: v1.0
 milestone_name: milestone
 status: completed
 stopped_at: Phase 5 context gathered
-last_updated: "2026-03-13T21:14:20.905Z"
+last_updated: "2026-03-13T22:54:15.363Z"
 last_activity: 2026-03-13 -- Plan 04-03 executed (ideas kanban board with drag-and-drop)
 progress:
   total_phases: 6
   completed_phases: 4
-  total_plans: 13
-  completed_plans: 13
+  total_plans: 17
+  completed_plans: 14
   percent: 92
 ---
 
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen -- mit integrierter URL-Link-Automation
-**Current focus:** Phase 4 Editorial Calendar and Ideas Board -- IN PROGRESS
+**Current focus:** Phase 5 Publishing Pipeline and Link-in-Bio -- IN PROGRESS
 
 ## Current Position
 
-Phase: 4 of 6 (Editorial Calendar and Ideas Board)
-Plan: 3 of 3 in current phase (04-03 complete -- phase complete)
-Status: Phase 04 complete -- all 3 plans executed
-Last activity: 2026-03-13 -- Plan 04-03 executed (ideas kanban board with drag-and-drop)
+Phase: 5 of 6 (Publishing Pipeline and Link-in-Bio)
+Plan: 1 of 4 in current phase (05-01 complete)
+Status: Executing Phase 05 plans
+Last activity: 2026-03-13 -- Plan 05-01 executed (workflow data layer and bio API)
 
-Progress: [█████████░] 92%
+Progress: [████████░░] 82%
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Progress: [█████████░] 92%
 | Phase 04 P01 | 7min | 3 tasks | 21 files |
 | Phase 04 P02 | 28min | 2 tasks | 12 files |
 | Phase 04 P03 | 27min | 3 tasks | 13 files |
+| Phase 05 P01 | 6min | 3 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -111,6 +112,9 @@ Recent decisions affecting current work:
 - [04-03]: Kanban board uses optimistic local state with server sync via useEffect
 - [04-03]: Undo toast on cross-column moves only (not same-column reorder)
 - [04-03]: Campaign filter Select uses "none" sentinel value for Radix compatibility
+- [05-01]: Rejection comments stored in publish_errors JSONB to avoid schema migration
+- [05-01]: Public bio route filters expired items server-side via Supabase or() filter
+- [05-01]: Bio items PATCH handles both reorder (items array) and single item update (itemId) via schema detection
 
 ### Pending Todos
 
@@ -125,6 +129,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T21:14:20.901Z
-Stopped at: Phase 5 context gathered
-Resume file: .planning/phases/05-publishing-pipeline-and-link-in-bio/05-CONTEXT.md
+Last session: 2026-03-13T22:52:49Z
+Stopped at: Completed 05-01-PLAN.md
+Resume file: .planning/phases/05-publishing-pipeline-and-link-in-bio/05-01-SUMMARY.md
