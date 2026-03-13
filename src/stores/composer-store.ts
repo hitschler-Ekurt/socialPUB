@@ -21,6 +21,7 @@ type ComposerActions = {
   readonly setCaptionOverride: (platform: string, caption: string) => void
   readonly removeCaptionOverride: (platform: string) => void
   readonly toggleChannel: (channelId: string) => void
+  readonly setSelectedChannelIds: (ids: string[]) => void
   readonly setSelectedMediaIds: (ids: string[]) => void
   readonly setCampaignId: (id: string | null) => void
   readonly addHashtags: (tags: string[]) => void
@@ -73,6 +74,9 @@ export const useComposerStore = create<ComposerStore>()(
             ? state.selectedChannelIds.filter((id) => id !== channelId)
             : [...state.selectedChannelIds, channelId],
         })),
+
+      setSelectedChannelIds: (ids: string[]) =>
+        set({ selectedChannelIds: ids }),
 
       setSelectedMediaIds: (ids: string[]) =>
         set({ selectedMediaIds: ids }),
