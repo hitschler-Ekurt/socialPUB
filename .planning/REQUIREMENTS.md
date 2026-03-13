@@ -51,11 +51,11 @@
 
 ### Media Library
 
-- [ ] **MEDIA-01**: User can upload images and videos via drag-and-drop or file picker
-- [ ] **MEDIA-02**: User can tag media assets with keywords
-- [ ] **MEDIA-03**: User can search and filter media by type, tags, and campaign
-- [ ] **MEDIA-04**: Media shows usage count (how many posts reference it)
-- [ ] **MEDIA-05**: System generates thumbnails for uploaded videos
+- [x] **MEDIA-01**: User can upload images and videos via drag-and-drop or file picker
+- [x] **MEDIA-02**: User can tag media assets with keywords
+- [x] **MEDIA-03**: User can search and filter media by type, tags, and campaign
+- [x] **MEDIA-04**: Media shows usage count (how many posts reference it)
+- [x] **MEDIA-05**: System generates thumbnails for uploaded videos
 
 ### URL-Link-Automation
 
@@ -169,11 +169,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HASH-01 | Phase 2 | Complete |
 | HASH-02 | Phase 2 | Complete |
 | HASH-03 | Phase 2 | Complete |
-| MEDIA-01 | Phase 2 | Pending |
-| MEDIA-02 | Phase 2 | Pending |
-| MEDIA-03 | Phase 2 | Pending |
-| MEDIA-04 | Phase 2 | Pending |
-| MEDIA-05 | Phase 2 | Pending |
+| MEDIA-01 | Phase 2 | Complete |
+| MEDIA-02 | Phase 2 | Complete |
+| MEDIA-03 | Phase 2 | Complete |
+| MEDIA-04 | Phase 2 | Complete |
+| MEDIA-05 | Phase 2 | Complete |
 | COMP-01 | Phase 3 | Pending |
 | COMP-02 | Phase 3 | Pending |
 | COMP-03 | Phase 3 | Pending |
