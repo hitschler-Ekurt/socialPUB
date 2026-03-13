@@ -2,6 +2,7 @@
 
 import React from "react"
 import { useCalendarStore } from "@/stores/calendar-store"
+import { useDroppable } from "@dnd-kit/core"
 import {
   getDayHours,
   isToday,
@@ -16,6 +17,31 @@ import type { CalendarPost } from "@/hooks/use-calendar-posts"
 type CalendarDayViewProps = {
   readonly posts: CalendarPost[]
   readonly onPostClick?: (postId: string) => void
+}
+
+function DroppableHourSlot({
+  date,
+  children,
+}: {
+  readonly date: Date
+  readonly children: React.ReactNode
+}) {
+  const { setNodeRef, isOver } = useDroppable({
+    id: `slot-${date.toISOString()}`,
+    data: { date },
+  })
+
+  return (
+    <div
+      ref={setNodeRef}
+      className={cn(
+        "flex-1 p-0.5",
+        isOver && "bg-accent/50 border-dashed border-primary"
+      )}
+    >
+      {children}
+    </div>
+  )
 }
 
 function CalendarDayViewInner({ posts, onPostClick }: CalendarDayViewProps) {
@@ -70,6 +96,8 @@ function CalendarDayViewInner({ posts, onPostClick }: CalendarDayViewProps) {
         {hours.map((hourDate, idx) => {
           const hour = idx
           const hourPosts = postsByHour.get(hour) ?? []
+          const slotDate = new Date(currentDate)
+          slotDate.setHours(hour, 0, 0, 0)
 
           return (
             <div
@@ -79,7 +107,7 @@ function CalendarDayViewInner({ posts, onPostClick }: CalendarDayViewProps) {
               <div className="flex w-[60px] shrink-0 items-start justify-center border-r border-neutral-200 pt-0.5 text-xs text-neutral-400">
                 {format(hourDate, "HH:mm")}
               </div>
-              <div className="flex-1 p-0.5">
+              <DroppableHourSlot date={slotDate}>
                 {hourPosts.map((post) => (
                   <CalendarPostCard
                     key={post.id}
@@ -87,7 +115,7 @@ function CalendarDayViewInner({ posts, onPostClick }: CalendarDayViewProps) {
                     onClick={onPostClick}
                   />
                 ))}
-              </div>
+              </DroppableHourSlot>
             </div>
           )
         })}

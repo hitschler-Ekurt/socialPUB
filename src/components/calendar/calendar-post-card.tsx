@@ -1,12 +1,15 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { useDraggable } from "@dnd-kit/core"
+import { CSS } from "@dnd-kit/utilities"
 import { Instagram, Video, Circle } from "lucide-react"
 import type { CalendarPost } from "@/hooks/use-calendar-posts"
 
 type CalendarPostCardProps = {
   readonly post: CalendarPost
   readonly onClick?: (postId: string) => void
+  readonly isDragOverlay?: boolean
 }
 
 const STATUS_COLORS: Record<string, string> = {
@@ -39,30 +42,49 @@ function getMediaThumbnailUrl(post: CalendarPost): string | null {
   return `${supabaseUrl}/storage/v1/object/public/media/${firstMedia.file_path}`
 }
 
-export function CalendarPostCard({ post, onClick }: CalendarPostCardProps) {
+export function CalendarPostCard({ post, onClick, isDragOverlay }: CalendarPostCardProps) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    isDragging,
+  } = useDraggable({
+    id: post.id,
+    data: { post },
+  })
+
   const thumbnailUrl = getMediaThumbnailUrl(post)
   const campaignColor = post.campaigns?.color ?? null
   const statusColor = STATUS_COLORS[post.status] ?? STATUS_COLORS.draft
   const firstChannel = post.post_channels?.[0]?.channels
   const caption = post.caption ?? ""
 
+  const style: React.CSSProperties = {
+    transform: CSS.Translate.toString(transform),
+    ...(campaignColor ? { borderLeft: `2px solid ${campaignColor}` } : {}),
+  }
+
   return (
     <button
+      ref={setNodeRef}
       type="button"
       onClick={(e) => {
         e.stopPropagation()
-        onClick?.(post.id)
+        if (!isDragging) {
+          onClick?.(post.id)
+        }
       }}
       className={cn(
         "flex w-full items-center gap-1.5 rounded px-1.5 py-1 text-left",
         "cursor-pointer transition-colors hover:bg-accent/50",
-        "h-7 min-w-0"
+        "h-7 min-w-0",
+        isDragging && !isDragOverlay && "opacity-50",
+        isDragOverlay && "shadow-lg ring-2 ring-primary/30 bg-white"
       )}
-      style={
-        campaignColor
-          ? { borderLeft: `2px solid ${campaignColor}` }
-          : undefined
-      }
+      style={style}
+      {...listeners}
+      {...attributes}
     >
       {thumbnailUrl && (
         <img

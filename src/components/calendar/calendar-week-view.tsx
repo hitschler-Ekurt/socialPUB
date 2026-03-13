@@ -2,6 +2,7 @@
 
 import React from "react"
 import { useCalendarStore } from "@/stores/calendar-store"
+import { useDroppable } from "@dnd-kit/core"
 import {
   getWeekHours,
   isToday,
@@ -21,6 +22,35 @@ type CalendarWeekViewProps = {
 function getPostHour(post: CalendarPost): number | null {
   if (!post.scheduled_at) return null
   return parseISO(post.scheduled_at).getHours()
+}
+
+function DroppableSlot({
+  id,
+  date,
+  children,
+  className,
+}: {
+  readonly id: string
+  readonly date: Date
+  readonly children: React.ReactNode
+  readonly className?: string
+}) {
+  const { setNodeRef, isOver } = useDroppable({
+    id,
+    data: { date },
+  })
+
+  return (
+    <div
+      ref={setNodeRef}
+      className={cn(
+        className,
+        isOver && "bg-accent/50 border-dashed border-primary"
+      )}
+    >
+      {children}
+    </div>
+  )
 }
 
 function CalendarWeekViewInner({ posts, onPostClick }: CalendarWeekViewProps) {
@@ -100,8 +130,10 @@ function CalendarWeekViewInner({ posts, onPostClick }: CalendarWeekViewProps) {
           const dayKey = format(day, "yyyy-MM-dd")
           const dayAllDay = allDayPosts.get(dayKey) ?? []
           return (
-            <div
+            <DroppableSlot
               key={`allday-${dayKey}`}
+              id={`slot-allday-${day.toISOString()}`}
+              date={day}
               className="min-h-[32px] border-r border-neutral-200 p-0.5"
             >
               {dayAllDay.map((post) => (
@@ -111,7 +143,7 @@ function CalendarWeekViewInner({ posts, onPostClick }: CalendarWeekViewProps) {
                   onClick={onPostClick}
                 />
               ))}
-            </div>
+            </DroppableSlot>
           )
         })}
       </div>
@@ -129,9 +161,14 @@ function CalendarWeekViewInner({ posts, onPostClick }: CalendarWeekViewProps) {
             const dayKey = format(day, "yyyy-MM-dd")
             const hourPosts =
               timedPosts.get(dayKey)?.get(hour) ?? []
+            const slotDate = new Date(day)
+            slotDate.setHours(hour, 0, 0, 0)
+
             return (
-              <div
+              <DroppableSlot
                 key={`${dayKey}-${hour}`}
+                id={`slot-${slotDate.toISOString()}`}
+                date={slotDate}
                 className="border-r border-neutral-100 p-0.5"
               >
                 {hourPosts.map((post) => (
@@ -141,7 +178,7 @@ function CalendarWeekViewInner({ posts, onPostClick }: CalendarWeekViewProps) {
                     onClick={onPostClick}
                   />
                 ))}
-              </div>
+              </DroppableSlot>
             )
           })}
         </div>
