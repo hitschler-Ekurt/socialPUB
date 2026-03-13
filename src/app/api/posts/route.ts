@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { createClient } from "@/lib/supabase/server"
 import { createPostSchema } from "@/lib/validations/post"
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const supabase = await createClient()
 
@@ -18,10 +18,25 @@ export async function GET() {
       )
     }
 
-    const { data: posts, error } = await supabase
+    const { searchParams } = new URL(request.url)
+    const from = searchParams.get("from")
+    const to = searchParams.get("to")
+
+    let query = supabase
       .from("posts")
-      .select("*, campaigns(id, name, color, slug)")
+      .select(
+        "*, campaigns(id, name, color, slug), post_channels(channel_id, channels(id, platform, name)), post_media(media_id, media(id, file_path, mime_type))"
+      )
       .order("created_at", { ascending: false })
+
+    if (from) {
+      query = query.gte("scheduled_at", from)
+    }
+    if (to) {
+      query = query.lte("scheduled_at", to)
+    }
+
+    const { data: posts, error } = await query
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 })
