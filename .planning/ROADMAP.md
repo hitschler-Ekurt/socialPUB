@@ -130,7 +130,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Authentication | 3/3 | Complete   | 2026-03-13 |
-| 2. Entity Layer | 0/3 | Not started | - |
+| 2. Entity Layer | 1/3 | In progress | - |
 | 3. Post Composer and Link Engine | 0/4 | Not started | - |
 | 4. Editorial Calendar and Ideas Board | 0/3 | Not started | - |
 | 5. Publishing Pipeline and Link-in-Bio | 0/4 | Not started | - |

@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-13T14:37:00.422Z"
-last_activity: 2026-03-13 -- Plan 01-03 executed (app shell and UI pages)
+status: in-progress
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-13T15:09:00.000Z"
+last_activity: 2026-03-13 -- Plan 02-01 executed (channel management and shared infrastructure)
 progress:
   total_phases: 6
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
-  percent: 17
+  total_plans: 4
+  completed_plans: 4
+  percent: 22
 ---
 
 # Project State
@@ -21,32 +21,33 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen -- mit integrierter URL-Link-Automation
-**Current focus:** Phase 1 complete -- ready for Phase 2
+**Current focus:** Phase 2 Entity Layer -- Plan 01 complete, Plans 02-03 remaining
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation and Authentication) -- COMPLETE
-Plan: 3 of 3 in current phase (all done)
-Status: Phase 1 complete
-Last activity: 2026-03-13 -- Plan 01-03 executed (app shell and UI pages)
+Phase: 2 of 6 (Entity Layer)
+Plan: 1 of 3 in current phase (complete)
+Status: Plan 02-01 complete
+Last activity: 2026-03-13 -- Plan 02-01 executed (channel management and shared infrastructure)
 
-Progress: [██░░░░░░░░] 17%
+Progress: [██▒░░░░░░░] 22%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 11 min
-- Total execution time: 0.5 hours
+- Total plans completed: 4
+- Average duration: 12 min
+- Total execution time: 0.7 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01 | 3/3 | 32min | 11min |
+| 02 | 1/3 | 14min | 14min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (13min), 01-02 (4min), 01-03 (15min)
+- Last 5 plans: 01-01 (13min), 01-02 (4min), 01-03 (15min), 02-01 (14min)
 - Trend: steady
 
 *Updated after each plan completion*
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - [01-03]: Zustand with persist middleware for sidebar collapse state (localStorage key: hitschies-ui)
 - [01-03]: Inline Tabs in settings (not sub-routes) for snappy UX
 - [01-03]: Viewer role can edit own profile but team management controls hidden
+- [02-01]: Lazy Late.dev client initialization to avoid build-time env var errors
+- [02-01]: TanStack Query provider in AuthShell (client component) not layout.tsx (server component)
+- [02-01]: Health status mapped from Late.dev healthy/warning/error to connected/expiring/disconnected
 
 ### Pending Todos
 
@@ -79,9 +83,10 @@ None yet.
 - TikTok API audit takes 2-8 weeks -- must be submitted before Phase 2 channel setup. Verify if Late.dev covers this.
 - link.hitschies.de DNS must be configured early -- needed for short-link testing in Phase 3 and redirect service in Phase 5.
 - Late.dev token refresh scope unclear -- does Late.dev auto-refresh Instagram tokens or must the app handle 50-day refresh cycle?
+- LATE_API_KEY must be configured before channel connections work (Late.dev Dashboard -> API Keys)
 
 ## Session Continuity
 
-Last session: 2026-03-13T14:37:00.418Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-entity-layer/02-CONTEXT.md
+Last session: 2026-03-13T15:09:00.000Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-entity-layer/02-01-SUMMARY.md

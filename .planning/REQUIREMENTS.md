@@ -14,10 +14,10 @@
 
 ### Channels
 
-- [ ] **CHAN-01**: Admin can connect an Instagram account via Late.dev
-- [ ] **CHAN-02**: Admin can connect a TikTok account via Late.dev
-- [ ] **CHAN-03**: User can see connection status and token health per channel
-- [ ] **CHAN-04**: System monitors token expiration and alerts before tokens expire
+- [x] **CHAN-01**: Admin can connect an Instagram account via Late.dev
+- [x] **CHAN-02**: Admin can connect a TikTok account via Late.dev
+- [x] **CHAN-03**: User can see connection status and token health per channel
+- [x] **CHAN-04**: System monitors token expiration and alerts before tokens expire
 
 ### Calendar
 
@@ -160,10 +160,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-04 | Phase 1 | Complete |
 | UX-01 | Phase 1 | Complete |
 | UX-04 | Phase 1 | Complete |
-| CHAN-01 | Phase 2 | Pending |
-| CHAN-02 | Phase 2 | Pending |
-| CHAN-03 | Phase 2 | Pending |
-| CHAN-04 | Phase 2 | Pending |
+| CHAN-01 | Phase 2 | Complete |
+| CHAN-02 | Phase 2 | Complete |
+| CHAN-03 | Phase 2 | Complete |
+| CHAN-04 | Phase 2 | Complete |
 | CAMP-01 | Phase 2 | Pending |
 | CAMP-02 | Phase 2 | Pending |
 | HASH-01 | Phase 2 | Pending |
