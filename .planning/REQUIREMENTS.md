@@ -10,7 +10,7 @@
 - [ ] **AUTH-01**: User can sign up and log in with email and password
 - [ ] **AUTH-02**: User session persists across browser refresh
 - [ ] **AUTH-03**: Admin can assign roles (Admin, Editor, Viewer) to users
-- [ ] **AUTH-04**: Editor can create and edit posts, Viewer has read-only access
+- [x] **AUTH-04**: Editor can create and edit posts, Viewer has read-only access
 
 ### Channels
 
@@ -102,7 +102,7 @@
 - [ ] **UX-01**: App shell with collapsible sidebar navigation (hitschies branding)
 - [ ] **UX-02**: Keyboard shortcuts for common actions (N=new post, K=calendar, etc.)
 - [ ] **UX-03**: Responsive layout functional on tablet and mobile
-- [ ] **UX-04**: hitschies design tokens applied (Magenta primary, brand typography)
+- [x] **UX-04**: hitschies design tokens applied (Magenta primary, brand typography)
 - [ ] **UX-05**: Empty states with hitschies personality (branded illustrations/messages)
 - [ ] **UX-06**: Confetti animation when a post is published
 
@@ -157,9 +157,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-01 | Phase 1 | Pending |
 | AUTH-02 | Phase 1 | Pending |
 | AUTH-03 | Phase 1 | Pending |
-| AUTH-04 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Complete |
 | UX-01 | Phase 1 | Pending |
-| UX-04 | Phase 1 | Pending |
+| UX-04 | Phase 1 | Complete |
 | CHAN-01 | Phase 2 | Pending |
 | CHAN-02 | Phase 2 | Pending |
 | CHAN-03 | Phase 2 | Pending |
