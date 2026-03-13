@@ -47,12 +47,12 @@ Plans:
   3. User can create and categorize hashtag sets, and view them in a list ready for one-click insertion
   4. User can upload images/videos via drag-and-drop, tag them, search/filter by type and tags, and see usage counts
   5. System generates thumbnails for uploaded videos and monitors channel token expiration with alerts
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: Channel management and token health
-- [ ] 02-02: Campaigns and hashtag sets
-- [ ] 02-03: Media library
+- [ ] 02-01-PLAN.md — Shared infrastructure (TanStack Query, types fix, shared components) and channel management with Late.dev OAuth
+- [ ] 02-02-PLAN.md — Campaigns and hashtag sets on combined Kampagnen page with tabs
+- [ ] 02-03-PLAN.md — Media library with drag-drop uploads, tagging, filtering, and video thumbnails
 
 ### Phase 3: Post Composer and Link Engine
 **Goal**: Users can create fully-featured posts with platform-specific captions, live previews, media attachments, scheduling, and integrated URL-Link-Automation (UTM builder + short links + link library)
