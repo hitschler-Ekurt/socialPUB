@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-13T22:59:30.619Z"
-last_activity: 2026-03-13 -- Plan 05-01 executed (workflow data layer and bio API)
+stopped_at: Completed 05-02-PLAN.md
+last_updated: "2026-03-14T00:05:01.000Z"
+last_activity: 2026-03-14 -- Plan 05-02 executed (workflow UI and auto-publishing)
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 17
-  completed_plans: 15
-  percent: 88
+  completed_plans: 16
+  percent: 94
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 ## Current Position
 
 Phase: 5 of 6 (Publishing Pipeline and Link-in-Bio)
-Plan: 4 of 4 in current phase (05-04 complete)
+Plan: 3 of 4 in current phase (05-02 complete)
 Status: Executing Phase 05 plans
-Last activity: 2026-03-13 -- Plan 05-04 executed (short-link redirect service)
+Last activity: 2026-03-14 -- Plan 05-02 executed (workflow UI and auto-publishing)
 
-Progress: [█████████░] 88%
+Progress: [█████████░] 94%
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ Progress: [█████████░] 88%
 | Phase 04 P03 | 27min | 3 tasks | 13 files |
 | Phase 05 P01 | 6min | 3 tasks | 19 files |
 | Phase 05 P04 | 5min | 2 tasks | 9 files |
+| Phase 05 P02 | 4min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -120,6 +121,9 @@ Recent decisions affecting current work:
 - [05-04]: Fire-and-forget click tracking (no await on insert) for sub-100ms redirect latency
 - [05-04]: SHA-256 IP hashing for privacy-preserving analytics
 - [05-04]: @vercel/functions geolocation instead of deprecated req.geo
+- [05-02]: Excluded supabase/functions from tsconfig (Deno runtime, not Node.js)
+- [05-02]: WorkflowActions reads scheduledAt from composer store for schedule action
+- [05-02]: Save buttons hidden for published/scheduled posts in edit mode
 
 ### Pending Todos
 
@@ -134,6 +138,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T23:05:00Z
-Stopped at: Completed 05-04-PLAN.md
-Resume file: .planning/phases/05-publishing-pipeline-and-link-in-bio/05-04-SUMMARY.md
+Last session: 2026-03-14T00:05:01Z
+Stopped at: Completed 05-02-PLAN.md
+Resume file: .planning/phases/05-publishing-pipeline-and-link-in-bio/05-02-SUMMARY.md
