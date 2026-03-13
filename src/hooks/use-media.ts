@@ -2,24 +2,24 @@
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
-import { generateVideoThumbnail } from "@/lib/utils/video-thumbnail"
 import type { Database } from "@/lib/supabase/types"
+import { generateVideoThumbnail } from "@/lib/utils/video-thumbnail"
 
 type Media = Database["public"]["Tables"]["media"]["Row"]
 
 type MediaFilters = {
-  readonly media_type?: "image" | "video" | "gif"
-  readonly tags?: string
-  readonly search?: string
-  readonly page?: number
+  media_type?: "image" | "video" | "gif"
+  tags?: string
+  search?: string
+  page?: number
 }
 
 type MediaResponse = {
-  readonly data: Media[]
-  readonly pagination: {
-    readonly page: number
-    readonly limit: number
-    readonly total: number
+  data: Media[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
   }
 }
 
@@ -42,93 +42,102 @@ export function useMedia(filters: MediaFilters = {}) {
   })
 }
 
-async function getSignedUploadUrl(fileName: string, contentType: string) {
-  const res = await fetch("/api/media/upload-url", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ fileName, contentType }),
-  })
-  if (!res.ok) throw new Error("Fehler beim Erstellen der Upload-URL")
-  return res.json() as Promise<{
-    uploadUrl: string
-    filePath: string
-    token: string
-  }>
-}
-
-async function uploadFileToStorage(uploadUrl: string, file: Blob, contentType: string) {
-  const res = await fetch(uploadUrl, {
-    method: "PUT",
-    headers: { "Content-Type": contentType },
-    body: file,
-  })
-  if (!res.ok) throw new Error("Fehler beim Hochladen der Datei")
-}
-
-async function createMediaRecord(metadata: Record<string, unknown>) {
-  const res = await fetch("/api/media", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(metadata),
-  })
-  if (!res.ok) throw new Error("Fehler beim Speichern der Metadaten")
-  return res.json()
-}
-
-function getMediaType(mimeType: string): "image" | "video" | "gif" {
-  if (mimeType === "image/gif") return "gif"
-  if (mimeType.startsWith("video/")) return "video"
-  return "image"
-}
-
 export function useUploadMedia() {
   const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: async (file: File) => {
-      // Step 1: Get signed URL
-      const { uploadUrl, filePath } = await getSignedUploadUrl(
-        file.name,
-        file.type
-      )
+      // 1. Get signed upload URL
+      const urlRes = await fetch("/api/media/upload-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fileName: file.name,
+          contentType: file.type,
+        }),
+      })
+      if (!urlRes.ok) {
+        const json = await urlRes.json()
+        throw new Error(json.error ?? "Fehler beim Erstellen der Upload-URL")
+      }
+      const { uploadUrl, filePath } = await urlRes.json()
 
-      // Step 2: Upload file to storage
-      await uploadFileToStorage(uploadUrl, file, file.type)
+      // 2. Upload file directly to Supabase Storage
+      const uploadRes = await fetch(uploadUrl, {
+        method: "PUT",
+        body: file,
+        headers: { "Content-Type": file.type },
+      })
+      if (!uploadRes.ok) {
+        throw new Error("Fehler beim Hochladen der Datei")
+      }
 
-      // Step 3: Handle video thumbnail
+      // 3. Generate thumbnail for videos
       let thumbnailPath: string | null = null
-      const mediaType = getMediaType(file.type)
-
-      if (mediaType === "video") {
+      if (file.type.startsWith("video/")) {
         try {
           const thumbnailBlob = await generateVideoThumbnail(file)
-          const thumbnailName = `thumb_${file.name.replace(/\.[^.]+$/, "")}.jpg`
-          const thumbResult = await getSignedUploadUrl(thumbnailName, "image/jpeg")
-          await uploadFileToStorage(thumbResult.uploadUrl, thumbnailBlob, "image/jpeg")
-          thumbnailPath = thumbResult.filePath
+          const thumbFileName = `thumb_${file.name.replace(/\.[^.]+$/, ".jpg")}`
+
+          // Get signed URL for thumbnail
+          const thumbUrlRes = await fetch("/api/media/upload-url", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              fileName: thumbFileName,
+              contentType: "image/jpeg",
+            }),
+          })
+          if (thumbUrlRes.ok) {
+            const thumbData = await thumbUrlRes.json()
+            const thumbUploadRes = await fetch(thumbData.uploadUrl, {
+              method: "PUT",
+              body: thumbnailBlob,
+              headers: { "Content-Type": "image/jpeg" },
+            })
+            if (thumbUploadRes.ok) {
+              thumbnailPath = thumbData.filePath
+            }
+          }
         } catch {
-          // Thumbnail generation is non-critical, continue without it
+          // Thumbnail generation failed -- continue without it
           console.warn("Video-Thumbnail konnte nicht erstellt werden")
         }
       }
 
-      // Step 4: Create media record
-      const metadata = {
-        file_name: file.name,
-        file_path: filePath,
-        file_size: file.size,
-        mime_type: file.type,
-        media_type: mediaType,
-        thumbnail_path: thumbnailPath,
+      // 4. Determine media type
+      let mediaType: "image" | "video" | "gif" = "image"
+      if (file.type.startsWith("video/")) {
+        mediaType = "video"
+      } else if (file.type === "image/gif") {
+        mediaType = "gif"
       }
 
-      return createMediaRecord(metadata)
+      // 5. Create media record
+      const metaRes = await fetch("/api/media", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          file_name: file.name,
+          file_path: filePath,
+          file_size: file.size,
+          mime_type: file.type,
+          media_type: mediaType,
+          thumbnail_path: thumbnailPath,
+        }),
+      })
+      if (!metaRes.ok) {
+        const json = await metaRes.json()
+        throw new Error(json.error ?? "Fehler beim Speichern der Metadaten")
+      }
+
+      return metaRes.json()
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: MEDIA_KEY })
     },
     onError: (error: Error) => {
-      toast.error(error.message || "Upload fehlgeschlagen")
+      toast.error(error.message)
     },
   })
 }
@@ -153,6 +162,9 @@ export function useUpdateMediaTags() {
       queryClient.invalidateQueries({ queryKey: MEDIA_KEY })
       toast.success("Tags aktualisiert")
     },
+    onError: (error: Error) => {
+      toast.error(error.message)
+    },
   })
 }
 
@@ -174,6 +186,9 @@ export function useDeleteMedia() {
       queryClient.invalidateQueries({ queryKey: MEDIA_KEY })
       toast.success("Datei geloescht")
     },
+    onError: (error: Error) => {
+      toast.error(error.message)
+    },
   })
 }
 
@@ -184,8 +199,13 @@ export function useBulkDeleteMedia() {
     mutationFn: async (ids: string[]) => {
       const results = await Promise.all(
         ids.map(async (id) => {
-          const res = await fetch(`/api/media/${id}`, { method: "DELETE" })
-          if (!res.ok) throw new Error(`Fehler beim Loeschen von ${id}`)
+          const res = await fetch(`/api/media/${id}`, {
+            method: "DELETE",
+          })
+          if (!res.ok) {
+            const json = await res.json()
+            throw new Error(json.error ?? `Fehler beim Loeschen von ${id}`)
+          }
           return res.json()
         })
       )
@@ -194,6 +214,9 @@ export function useBulkDeleteMedia() {
     onSuccess: (_data, ids) => {
       queryClient.invalidateQueries({ queryKey: MEDIA_KEY })
       toast.success(`${ids.length} Dateien geloescht`)
+    },
+    onError: (error: Error) => {
+      toast.error(error.message)
     },
   })
 }
@@ -205,24 +228,27 @@ export function useBulkTagMedia() {
     mutationFn: async ({
       ids,
       tags,
-      existingMedia,
+      existingTagsMap,
     }: {
       ids: string[]
       tags: string[]
-      existingMedia: Media[]
+      existingTagsMap: Record<string, string[]>
     }) => {
       const results = await Promise.all(
         ids.map(async (id) => {
-          const existing = existingMedia.find((m) => m.id === id)
-          const currentTags = existing?.tags ?? []
-          const mergedTags = [...new Set([...currentTags, ...tags])]
-
+          const existing = existingTagsMap[id] ?? []
+          const merged = [...new Set([...existing, ...tags])]
           const res = await fetch(`/api/media/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ tags: mergedTags }),
+            body: JSON.stringify({ tags: merged }),
           })
-          if (!res.ok) throw new Error(`Fehler beim Taggen von ${id}`)
+          if (!res.ok) {
+            const json = await res.json()
+            throw new Error(
+              json.error ?? `Fehler beim Taggen von ${id}`
+            )
+          }
           return res.json()
         })
       )
@@ -231,6 +257,9 @@ export function useBulkTagMedia() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: MEDIA_KEY })
       toast.success("Tags hinzugefuegt")
+    },
+    onError: (error: Error) => {
+      toast.error(error.message)
     },
   })
 }

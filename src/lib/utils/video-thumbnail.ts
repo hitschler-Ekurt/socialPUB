@@ -1,41 +1,31 @@
 /**
- * Client-side video thumbnail extraction using HTML5 Canvas.
- * Creates a JPEG snapshot at 25% of video duration (min 1s).
+ * Generates a JPEG thumbnail from a video file using HTML5 Canvas.
+ * Captures a frame at 25% of video duration (minimum 1 second).
+ * Returns a JPEG Blob at 320px width, proportional height.
  */
-
-const THUMBNAIL_WIDTH = 320
-const JPEG_QUALITY = 0.8
-
 export function generateVideoThumbnail(file: File): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const video = document.createElement("video")
+    video.preload = "metadata"
+    video.muted = true
     const objectUrl = URL.createObjectURL(file)
+    video.src = objectUrl
 
-    const cleanup = () => {
+    function cleanup() {
       URL.revokeObjectURL(objectUrl)
-      video.removeAttribute("src")
-      video.load()
     }
 
-    video.addEventListener("error", () => {
-      cleanup()
-      reject(new Error("Video konnte nicht geladen werden"))
-    })
+    video.onloadeddata = () => {
+      video.currentTime = Math.max(1, video.duration * 0.25)
+    }
 
-    video.addEventListener("loadedmetadata", () => {
-      const seekTime = Math.max(1, video.duration * 0.25)
-      video.currentTime = Math.min(seekTime, video.duration)
-    })
-
-    video.addEventListener("seeked", () => {
+    video.onseeked = () => {
       try {
-        const aspectRatio = video.videoHeight / video.videoWidth
-        const canvasWidth = THUMBNAIL_WIDTH
-        const canvasHeight = Math.round(THUMBNAIL_WIDTH * aspectRatio)
-
         const canvas = document.createElement("canvas")
-        canvas.width = canvasWidth
-        canvas.height = canvasHeight
+        const targetWidth = 320
+        const aspectRatio = video.videoHeight / video.videoWidth
+        canvas.width = targetWidth
+        canvas.height = Math.round(targetWidth * aspectRatio)
 
         const ctx = canvas.getContext("2d")
         if (!ctx) {
@@ -44,29 +34,33 @@ export function generateVideoThumbnail(file: File): Promise<Blob> {
           return
         }
 
-        ctx.drawImage(video, 0, 0, canvasWidth, canvasHeight)
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height)
 
         canvas.toBlob(
           (blob) => {
             cleanup()
-            if (!blob) {
-              reject(new Error("Thumbnail konnte nicht erstellt werden"))
-              return
+            if (blob) {
+              resolve(blob)
+            } else {
+              reject(new Error("Thumbnail-Erstellung fehlgeschlagen"))
             }
-            resolve(blob)
           },
           "image/jpeg",
-          JPEG_QUALITY
+          0.8
         )
-      } catch {
+      } catch (err) {
         cleanup()
-        reject(new Error("Thumbnail-Erstellung fehlgeschlagen"))
+        reject(
+          new Error(
+            `Thumbnail-Erstellung fehlgeschlagen: ${err instanceof Error ? err.message : String(err)}`
+          )
+        )
       }
-    })
+    }
 
-    video.preload = "metadata"
-    video.muted = true
-    video.playsInline = true
-    video.src = objectUrl
+    video.onerror = () => {
+      cleanup()
+      reject(new Error("Video konnte nicht geladen werden"))
+    }
   })
 }

@@ -13,15 +13,15 @@ export const createMediaSchema = z.object({
 })
 
 export const updateMediaTagsSchema = z.object({
-  tags: z.array(z.string().min(1, "Tag darf nicht leer sein")),
+  tags: z.array(z.string()),
 })
 
 export const mediaFilterSchema = z.object({
   media_type: z.enum(["image", "video", "gif"]).optional(),
   tags: z.string().optional(),
   search: z.string().optional(),
-  page: z.coerce.number().int().positive().default(1),
-  limit: z.coerce.number().int().positive().max(100).default(24),
+  page: z.coerce.number().int().positive().optional().default(1),
+  limit: z.coerce.number().int().positive().max(100).optional().default(24),
 })
 
 export type CreateMediaInput = z.infer<typeof createMediaSchema>

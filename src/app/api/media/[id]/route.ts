@@ -2,35 +2,11 @@ import { NextResponse } from "next/server"
 import { createClient } from "@/lib/supabase/server"
 import { updateMediaTagsSchema } from "@/lib/validations/media"
 
-async function verifyEditorOrAdmin(supabase: Awaited<ReturnType<typeof createClient>>) {
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser()
-
-  if (authError || !user) {
-    return { authorized: false as const, status: 401, error: "Nicht authentifiziert" }
-  }
-
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("role")
-    .eq("id", user.id)
-    .single()
-
-  if (!profile || !["admin", "editor"].includes(profile.role)) {
-    return { authorized: false as const, status: 403, error: "Keine Berechtigung" }
-  }
-
-  return { authorized: true as const, user }
-}
-
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params
     const supabase = await createClient()
 
     const {
@@ -45,19 +21,20 @@ export async function PATCH(
       )
     }
 
+    const { id } = await params
     const body = await request.json()
-    const parseResult = updateMediaTagsSchema.safeParse(body)
+    const parsed = updateMediaTagsSchema.safeParse(body)
 
-    if (!parseResult.success) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: "Ungueltige Eingabe", details: parseResult.error.flatten() },
+        { error: "Ungueltige Eingabe", details: parsed.error.issues },
         { status: 400 }
       )
     }
 
     const { data, error } = await supabase
       .from("media")
-      .update({ tags: parseResult.data.tags })
+      .update({ tags: parsed.data.tags })
       .eq("id", id)
       .select()
       .single()
@@ -80,18 +57,37 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params
     const supabase = await createClient()
-    const authResult = await verifyEditorOrAdmin(supabase)
 
-    if (!authResult.authorized) {
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser()
+
+    if (authError || !user) {
       return NextResponse.json(
-        { error: authResult.error },
-        { status: authResult.status }
+        { error: "Nicht authentifiziert" },
+        { status: 401 }
       )
     }
 
-    // Fetch media record to get file paths for storage cleanup
+    // Check role -- admin/editor only
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .single()
+
+    if (!profile || profile.role === "viewer") {
+      return NextResponse.json(
+        { error: "Keine Berechtigung" },
+        { status: 403 }
+      )
+    }
+
+    const { id } = await params
+
+    // Fetch media record to get file paths before deleting
     const { data: media, error: fetchError } = await supabase
       .from("media")
       .select("file_path, thumbnail_path")
@@ -99,14 +95,20 @@ export async function DELETE(
       .single()
 
     if (fetchError) {
-      return NextResponse.json({ error: fetchError.message }, { status: 500 })
+      return NextResponse.json(
+        { error: fetchError.message },
+        { status: 500 }
+      )
     }
 
     if (!media) {
-      return NextResponse.json({ error: "Datei nicht gefunden" }, { status: 404 })
+      return NextResponse.json(
+        { error: "Datei nicht gefunden" },
+        { status: 404 }
+      )
     }
 
-    // Delete files from storage
+    // Delete files from Supabase Storage
     const filesToRemove = [media.file_path]
     if (media.thumbnail_path) {
       filesToRemove.push(media.thumbnail_path)
@@ -121,7 +123,10 @@ export async function DELETE(
       .eq("id", id)
 
     if (deleteError) {
-      return NextResponse.json({ error: deleteError.message }, { status: 500 })
+      return NextResponse.json(
+        { error: deleteError.message },
+        { status: 500 }
+      )
     }
 
     return NextResponse.json({ data: { id } })
