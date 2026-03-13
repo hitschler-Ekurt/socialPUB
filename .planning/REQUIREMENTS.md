@@ -1,0 +1,166 @@
+# Requirements: hitschies Publisher
+
+**Defined:** 2026-03-13
+**Core Value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen — mit integrierter URL-Link-Automation
+
+## v1 Requirements
+
+### Authentication
+
+- [ ] **AUTH-01**: User can sign up and log in with email and password
+- [ ] **AUTH-02**: User session persists across browser refresh
+- [ ] **AUTH-03**: Admin can assign roles (Admin, Editor, Viewer) to users
+- [ ] **AUTH-04**: Editor can create and edit posts, Viewer has read-only access
+
+### Channels
+
+- [ ] **CHAN-01**: Admin can connect an Instagram account via Late.dev
+- [ ] **CHAN-02**: Admin can connect a TikTok account via Late.dev
+- [ ] **CHAN-03**: User can see connection status and token health per channel
+- [ ] **CHAN-04**: System monitors token expiration and alerts before tokens expire
+
+### Calendar
+
+- [ ] **CAL-01**: User can view posts in a monthly calendar grid
+- [ ] **CAL-02**: User can switch between month, week, and day views
+- [ ] **CAL-03**: User can drag and drop a post to reschedule it to a different date/time
+- [ ] **CAL-04**: User can filter calendar by channel, status, and campaign
+- [ ] **CAL-05**: Post cards show thumbnail, caption snippet, channel icon, and status badge
+- [ ] **CAL-06**: User can click a day to quick-add a new post
+
+### Composer
+
+- [ ] **COMP-01**: User can write a caption with a character count per platform
+- [ ] **COMP-02**: User can override the caption per platform (e.g., shorter for TikTok)
+- [ ] **COMP-03**: User can attach images and videos from the Media Library
+- [ ] **COMP-04**: User can select target channels (Instagram, TikTok) for a post
+- [ ] **COMP-05**: User can see a live platform-specific preview that updates as they type
+- [ ] **COMP-06**: User can schedule a post for a specific date and time
+- [ ] **COMP-07**: User can assign a campaign tag to a post
+- [ ] **COMP-08**: User can insert a hashtag set with one click
+- [ ] **COMP-09**: User can add a first comment (Instagram strategy)
+
+### Workflow
+
+- [ ] **WRKF-01**: Post has status lifecycle: Draft > In Review > Approved > Scheduled > Published
+- [ ] **WRKF-02**: User can submit a post for review
+- [ ] **WRKF-03**: Reviewer can approve or reject a post with an optional comment
+- [ ] **WRKF-04**: Approved posts can be scheduled for auto-publishing
+- [ ] **WRKF-05**: System auto-publishes scheduled posts at the specified time via Late.dev
+- [ ] **WRKF-06**: Failed publications show error details and allow retry
+
+### Media Library
+
+- [ ] **MEDIA-01**: User can upload images and videos via drag-and-drop or file picker
+- [ ] **MEDIA-02**: User can tag media assets with keywords
+- [ ] **MEDIA-03**: User can search and filter media by type, tags, and campaign
+- [ ] **MEDIA-04**: Media shows usage count (how many posts reference it)
+- [ ] **MEDIA-05**: System generates thumbnails for uploaded videos
+
+### URL-Link-Automation
+
+- [ ] **LINK-01**: User can create a link with auto-generated UTM parameters
+- [ ] **LINK-02**: UTM source auto-fills from selected channel (instagram/tiktok)
+- [ ] **LINK-03**: UTM campaign auto-fills from post campaign tag
+- [ ] **LINK-04**: User can select from predefined UTM templates
+- [ ] **LINK-05**: System auto-generates a branded short link (link.hitschies.de/abc123)
+- [ ] **LINK-06**: Short link redirects to full URL with UTM parameters (302 redirect)
+- [ ] **LINK-07**: System tracks clicks on short links (count, device, referrer)
+- [ ] **LINK-08**: User can view all links in a central link library
+- [ ] **LINK-09**: Link library shows click count, associated posts, and campaign
+- [ ] **LINK-10**: User can generate a QR code for any short link
+
+### Link-in-Bio
+
+- [ ] **BIO-01**: User can create a branded link-in-bio landing page
+- [ ] **BIO-02**: User can add, remove, and reorder links via drag-and-drop
+- [ ] **BIO-03**: When a post with "update bio" enabled publishes, the link auto-moves to position 1
+- [ ] **BIO-04**: User can set link expiration dates (e.g., for Gewinnspiele)
+- [ ] **BIO-05**: Link-in-bio page is publicly accessible at a branded URL
+
+### Campaigns
+
+- [ ] **CAMP-01**: User can create campaigns with name, color, start/end date
+- [ ] **CAMP-02**: User can assign campaigns to posts
+- [ ] **CAMP-03**: Calendar shows campaign colors on post cards
+
+### Hashtags
+
+- [ ] **HASH-01**: User can create named hashtag sets (e.g., "hitschies Standard", "Karneval")
+- [ ] **HASH-02**: User can insert a hashtag set into a post caption with one click
+- [ ] **HASH-03**: Hashtag sets can be categorized (brand, product, campaign)
+
+### Ideas Board
+
+- [ ] **IDEA-01**: User can create content ideas with title and description
+- [ ] **IDEA-02**: Kanban board with 4 columns: Idee, In Bearbeitung, Bereit, Geplant
+- [ ] **IDEA-03**: User can drag ideas between columns
+- [ ] **IDEA-04**: User can promote an idea to a full post in the Composer
+
+### Brand & UX
+
+- [ ] **UX-01**: App shell with collapsible sidebar navigation (hitschies branding)
+- [ ] **UX-02**: Keyboard shortcuts for common actions (N=new post, K=calendar, etc.)
+- [ ] **UX-03**: Responsive layout functional on tablet and mobile
+- [ ] **UX-04**: hitschies design tokens applied (Magenta primary, brand typography)
+- [ ] **UX-05**: Empty states with hitschies personality (branded illustrations/messages)
+- [ ] **UX-06**: Confetti animation when a post is published
+
+## v2 Requirements
+
+### AI & Intelligence
+
+- **AI-01**: Claude API generates caption suggestions based on media and campaign
+- **AI-02**: AI-generated hashtag recommendations
+- **AI-03**: Best-time-to-post heatmap based on historical engagement data
+
+### Analytics
+
+- **ANLY-01**: Post performance dashboard with data from Microsoft Fabric
+- **ANLY-02**: Link click analytics with charts (clicks over time, device breakdown)
+
+### Extended Channels
+
+- **EXCHAN-01**: Facebook page publishing via Late.dev
+- **EXCHAN-02**: LinkedIn company page publishing via Late.dev
+- **EXCHAN-03**: YouTube video upload scheduling
+
+### Advanced Workflow
+
+- **ADVWF-01**: Multi-level approval workflows with email notifications
+- **ADVWF-02**: Content recycling (auto-repost evergreen content)
+
+### Polish
+
+- **POLISH-01**: Dark mode
+- **POLISH-02**: Microsoft SSO login
+- **POLISH-03**: Broken-link detection in link library
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| Inbox / Community Management | Meta Business Suite handles comments/DMs already |
+| Social Listening / Monitoring | n8n Trend Scout covers this |
+| Competitor Analysis | Not core for content planning team |
+| Influencer Management | Separate domain, use dedicated tools |
+| Ad Management | Meta Ads Manager is free and purpose-built |
+| Native Mobile App | Responsive web app sufficient for 3-5 internal users |
+| Real-time Chat | Not needed for internal tool |
+
+## Traceability
+
+Which phases cover which requirements. Updated during roadmap creation.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| (populated during roadmap creation) | | |
+
+**Coverage:**
+- v1 requirements: 50 total
+- Mapped to phases: 0
+- Unmapped: 50
+
+---
+*Requirements defined: 2026-03-13*
+*Last updated: 2026-03-13 after initial definition*
