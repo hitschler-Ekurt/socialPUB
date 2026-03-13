@@ -72,11 +72,11 @@
 
 ### Link-in-Bio
 
-- [ ] **BIO-01**: User can create a branded link-in-bio landing page
-- [ ] **BIO-02**: User can add, remove, and reorder links via drag-and-drop
+- [x] **BIO-01**: User can create a branded link-in-bio landing page
+- [x] **BIO-02**: User can add, remove, and reorder links via drag-and-drop
 - [x] **BIO-03**: When a post with "update bio" enabled publishes, the link auto-moves to position 1
-- [ ] **BIO-04**: User can set link expiration dates (e.g., for Gewinnspiele)
-- [ ] **BIO-05**: Link-in-bio page is publicly accessible at a branded URL
+- [x] **BIO-04**: User can set link expiration dates (e.g., for Gewinnspiele)
+- [x] **BIO-05**: Link-in-bio page is publicly accessible at a branded URL
 
 ### Campaigns
 
@@ -209,11 +209,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | WRKF-04 | Phase 5 | Complete |
 | WRKF-05 | Phase 5 | Complete |
 | WRKF-06 | Phase 5 | Complete |
-| BIO-01 | Phase 5 | Pending |
-| BIO-02 | Phase 5 | Pending |
+| BIO-01 | Phase 5 | Complete |
+| BIO-02 | Phase 5 | Complete |
 | BIO-03 | Phase 5 | Complete |
-| BIO-04 | Phase 5 | Pending |
-| BIO-05 | Phase 5 | Pending |
+| BIO-04 | Phase 5 | Complete |
+| BIO-05 | Phase 5 | Complete |
 | UX-02 | Phase 6 | Pending |
 | UX-03 | Phase 6 | Pending |
 | UX-05 | Phase 6 | Pending |

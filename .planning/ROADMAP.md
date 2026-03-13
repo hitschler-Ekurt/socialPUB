@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Entity Layer** - Channels, campaigns, hashtag sets, media library -- the building blocks every feature depends on (completed 2026-03-13)
 - [x] **Phase 3: Post Composer and Link Engine** - Post creation with platform previews, UTM builder, short-link generation, link library (completed 2026-03-13)
 - [x] **Phase 4: Editorial Calendar and Ideas Board** - Calendar views with drag-and-drop, filtering, and Kanban ideas board (completed 2026-03-13)
-- [ ] **Phase 5: Publishing Pipeline and Link-in-Bio** - Scheduled auto-publishing via Late.dev, short-link redirect service, link-in-bio with auto-update
+- [x] **Phase 5: Publishing Pipeline and Link-in-Bio** - Scheduled auto-publishing via Late.dev, short-link redirect service, link-in-bio with auto-update (completed 2026-03-13)
 - [ ] **Phase 6: Polish and Production Readiness** - Keyboard shortcuts, responsive refinement, empty states, confetti, QR codes
 
 ## Phase Details
@@ -133,5 +133,5 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6
 | 2. Entity Layer | 3/3 | Complete   | 2026-03-13 |
 | 3. Post Composer and Link Engine | 4/4 | Complete   | 2026-03-13 |
 | 4. Editorial Calendar and Ideas Board | 3/3 | Complete   | 2026-03-13 |
-| 5. Publishing Pipeline and Link-in-Bio | 2/4 | In Progress|  |
+| 5. Publishing Pipeline and Link-in-Bio | 4/4 | Complete   | 2026-03-13 |
 | 6. Polish and Production Readiness | 0/2 | Not started | - |
