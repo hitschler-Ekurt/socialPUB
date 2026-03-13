@@ -23,10 +23,10 @@
 
 - [x] **CAL-01**: User can view posts in a monthly calendar grid
 - [x] **CAL-02**: User can switch between month, week, and day views
-- [ ] **CAL-03**: User can drag and drop a post to reschedule it to a different date/time
-- [ ] **CAL-04**: User can filter calendar by channel, status, and campaign
+- [x] **CAL-03**: User can drag and drop a post to reschedule it to a different date/time
+- [x] **CAL-04**: User can filter calendar by channel, status, and campaign
 - [x] **CAL-05**: Post cards show thumbnail, caption snippet, channel icon, and status badge
-- [ ] **CAL-06**: User can click a day to quick-add a new post
+- [x] **CAL-06**: User can click a day to quick-add a new post
 
 ### Composer
 
@@ -195,10 +195,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CAMP-03 | Phase 3 | Complete |
 | CAL-01 | Phase 4 | Complete |
 | CAL-02 | Phase 4 | Complete |
-| CAL-03 | Phase 4 | Pending |
-| CAL-04 | Phase 4 | Pending |
+| CAL-03 | Phase 4 | Complete |
+| CAL-04 | Phase 4 | Complete |
 | CAL-05 | Phase 4 | Complete |
-| CAL-06 | Phase 4 | Pending |
+| CAL-06 | Phase 4 | Complete |
 | IDEA-01 | Phase 4 | Complete |
 | IDEA-02 | Phase 4 | Complete |
 | IDEA-03 | Phase 4 | Complete |
