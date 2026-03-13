@@ -98,13 +98,13 @@ Plans:
   4. When a post with "update bio" enabled publishes, the associated link auto-moves to position 1 on the bio page
   5. Link-in-bio page is publicly accessible at a branded URL
   6. Short links resolve correctly (302 redirect to full UTM URL) and clicks are tracked
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 05-01: Post status workflow (review, approve, schedule)
-- [ ] 05-02: Publishing pipeline (queue, Late.dev, retry)
-- [ ] 05-03: Short-link redirect service (separate Vercel project)
-- [ ] 05-04: Link-in-bio manager
+- [ ] 05-01-PLAN.md — Workflow data layer: types, state machine, workflow API, bio CRUD API, TanStack Query hooks
+- [ ] 05-02-PLAN.md — Workflow UI in composer and Supabase Edge Function for auto-publishing
+- [ ] 05-03-PLAN.md — Link-in-bio manager with drag-drop and public bio page
+- [ ] 05-04-PLAN.md — Short-link redirect service (separate Vercel project)
 
 ### Phase 6: Polish and Production Readiness
 **Goal**: The tool feels polished, responsive, and delightful -- with keyboard shortcuts, branded empty states, responsive refinement, and personality moments that reflect the hitschies brand
