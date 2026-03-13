@@ -488,6 +488,108 @@ export type Database = {
         }
         Relationships: []
       }
+      approval_logs: {
+        Row: {
+          id: string
+          post_id: string
+          action: "submit_review" | "approve" | "reject" | "schedule" | "retry"
+          comment: string | null
+          performed_by: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          post_id: string
+          action: "submit_review" | "approve" | "reject" | "schedule" | "retry"
+          comment?: string | null
+          performed_by: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          post_id?: string
+          action?: "submit_review" | "approve" | "reject" | "schedule" | "retry"
+          comment?: string | null
+          performed_by?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
+      linkinbio_pages: {
+        Row: {
+          id: string
+          slug: string
+          title: string
+          description: string | null
+          logo_url: string | null
+          theme: Json
+          is_active: boolean
+          created_by: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          slug: string
+          title: string
+          description?: string | null
+          logo_url?: string | null
+          theme?: Json
+          is_active?: boolean
+          created_by?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          slug?: string
+          title?: string
+          description?: string | null
+          logo_url?: string | null
+          theme?: Json
+          is_active?: boolean
+          created_by?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      linkinbio_items: {
+        Row: {
+          id: string
+          page_id: string
+          link_id: string
+          position: number
+          is_visible: boolean
+          custom_title: string | null
+          custom_image_url: string | null
+          expires_at: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          page_id: string
+          link_id: string
+          position?: number
+          is_visible?: boolean
+          custom_title?: string | null
+          custom_image_url?: string | null
+          expires_at?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          page_id?: string
+          link_id?: string
+          position?: number
+          is_visible?: boolean
+          custom_title?: string | null
+          custom_image_url?: string | null
+          expires_at?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: Record<string, never>
     Functions: {
