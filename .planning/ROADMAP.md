@@ -64,13 +64,13 @@ Plans:
   3. User can create a link with auto-generated UTM parameters (source from channel, campaign from tag), select from UTM templates, and system auto-generates a branded short link at link.hitschies.de
   4. User can browse the central link library showing all links with click counts, associated posts, and campaign
   5. Short links resolve correctly (302 redirect to full UTM URL) and clicks are tracked
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: Post composer core (caption, media, channels, scheduling)
-- [ ] 03-02: Platform previews and composer refinements
-- [ ] 03-03: UTM builder and short-link generation
-- [ ] 03-04: Link library
+- [ ] 03-01-PLAN.md — Data layer: fix TypeScript types, Zod schemas, post/link/UTM-template API routes and hooks
+- [ ] 03-02-PLAN.md — Composer UI: Zustand store, caption editor, channel selector, media picker, scheduling, hashtags, first comment
+- [ ] 03-03-PLAN.md — Platform previews (Instagram + TikTok) and UTM builder with link creation dialog
+- [ ] 03-04-PLAN.md — Link library page and composer wiring (previews + link integration)
 
 ### Phase 4: Editorial Calendar and Ideas Board
 **Goal**: Users can plan content visually on a calendar with drag-and-drop rescheduling, and manage content ideas on a Kanban board that feeds into the composer
