@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 5 context gathered
-last_updated: "2026-03-13T22:54:15.363Z"
-last_activity: 2026-03-13 -- Plan 04-03 executed (ideas kanban board with drag-and-drop)
+status: executing
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-03-13T22:59:30.619Z"
+last_activity: 2026-03-13 -- Plan 05-01 executed (workflow data layer and bio API)
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 17
-  completed_plans: 14
-  percent: 92
+  completed_plans: 15
+  percent: 88
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 ## Current Position
 
 Phase: 5 of 6 (Publishing Pipeline and Link-in-Bio)
-Plan: 1 of 4 in current phase (05-01 complete)
+Plan: 4 of 4 in current phase (05-04 complete)
 Status: Executing Phase 05 plans
-Last activity: 2026-03-13 -- Plan 05-01 executed (workflow data layer and bio API)
+Last activity: 2026-03-13 -- Plan 05-04 executed (short-link redirect service)
 
-Progress: [████████░░] 82%
+Progress: [█████████░] 88%
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Progress: [████████░░] 82%
 | Phase 04 P02 | 28min | 2 tasks | 12 files |
 | Phase 04 P03 | 27min | 3 tasks | 13 files |
 | Phase 05 P01 | 6min | 3 tasks | 19 files |
+| Phase 05 P04 | 5min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -115,6 +116,10 @@ Recent decisions affecting current work:
 - [05-01]: Rejection comments stored in publish_errors JSONB to avoid schema migration
 - [05-01]: Public bio route filters expired items server-side via Supabase or() filter
 - [05-01]: Bio items PATCH handles both reorder (items array) and single item update (itemId) via schema detection
+- [05-04]: Next.js 15 for redirect service (not 16) for simplicity in minimal standalone project
+- [05-04]: Fire-and-forget click tracking (no await on insert) for sub-100ms redirect latency
+- [05-04]: SHA-256 IP hashing for privacy-preserving analytics
+- [05-04]: @vercel/functions geolocation instead of deprecated req.geo
 
 ### Pending Todos
 
@@ -129,6 +134,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T22:52:49Z
-Stopped at: Completed 05-01-PLAN.md
-Resume file: .planning/phases/05-publishing-pipeline-and-link-in-bio/05-01-SUMMARY.md
+Last session: 2026-03-13T23:05:00Z
+Stopped at: Completed 05-04-PLAN.md
+Resume file: .planning/phases/05-publishing-pipeline-and-link-in-bio/05-04-SUMMARY.md
