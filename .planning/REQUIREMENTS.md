@@ -99,7 +99,7 @@
 
 ### Brand & UX
 
-- [ ] **UX-01**: App shell with collapsible sidebar navigation (hitschies branding)
+- [x] **UX-01**: App shell with collapsible sidebar navigation (hitschies branding)
 - [ ] **UX-02**: Keyboard shortcuts for common actions (N=new post, K=calendar, etc.)
 - [ ] **UX-03**: Responsive layout functional on tablet and mobile
 - [x] **UX-04**: hitschies design tokens applied (Magenta primary, brand typography)
@@ -158,7 +158,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Complete |
-| UX-01 | Phase 1 | Pending |
+| UX-01 | Phase 1 | Complete |
 | UX-04 | Phase 1 | Complete |
 | CHAN-01 | Phase 2 | Pending |
 | CHAN-02 | Phase 2 | Pending |

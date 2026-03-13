@@ -12,7 +12,7 @@ The hitschies Publisher replaces swat.io as the marketing team's social media pl
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation and Authentication** - Project scaffold, Supabase schema, auth with roles, app shell with hitschies branding
+- [x] **Phase 1: Foundation and Authentication** - Project scaffold, Supabase schema, auth with roles, app shell with hitschies branding (completed 2026-03-13)
 - [ ] **Phase 2: Entity Layer** - Channels, campaigns, hashtag sets, media library -- the building blocks every feature depends on
 - [ ] **Phase 3: Post Composer and Link Engine** - Post creation with platform previews, UTM builder, short-link generation, link library
 - [ ] **Phase 4: Editorial Calendar and Ideas Board** - Calendar views with drag-and-drop, filtering, and Kanban ideas board
@@ -129,7 +129,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Authentication | 0/3 | Planning complete | - |
+| 1. Foundation and Authentication | 3/3 | Complete   | 2026-03-13 |
 | 2. Entity Layer | 0/3 | Not started | - |
 | 3. Post Composer and Link Engine | 0/4 | Not started | - |
 | 4. Editorial Calendar and Ideas Board | 0/3 | Not started | - |
