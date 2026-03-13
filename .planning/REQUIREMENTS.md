@@ -30,15 +30,15 @@
 
 ### Composer
 
-- [ ] **COMP-01**: User can write a caption with a character count per platform
-- [ ] **COMP-02**: User can override the caption per platform (e.g., shorter for TikTok)
-- [ ] **COMP-03**: User can attach images and videos from the Media Library
-- [ ] **COMP-04**: User can select target channels (Instagram, TikTok) for a post
+- [x] **COMP-01**: User can write a caption with a character count per platform
+- [x] **COMP-02**: User can override the caption per platform (e.g., shorter for TikTok)
+- [x] **COMP-03**: User can attach images and videos from the Media Library
+- [x] **COMP-04**: User can select target channels (Instagram, TikTok) for a post
 - [x] **COMP-05**: User can see a live platform-specific preview that updates as they type
-- [ ] **COMP-06**: User can schedule a post for a specific date and time
-- [ ] **COMP-07**: User can assign a campaign tag to a post
-- [ ] **COMP-08**: User can insert a hashtag set with one click
-- [ ] **COMP-09**: User can add a first comment (Instagram strategy)
+- [x] **COMP-06**: User can schedule a post for a specific date and time
+- [x] **COMP-07**: User can assign a campaign tag to a post
+- [x] **COMP-08**: User can insert a hashtag set with one click
+- [x] **COMP-09**: User can add a first comment (Instagram strategy)
 
 ### Workflow
 
@@ -174,15 +174,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MEDIA-03 | Phase 2 | Complete |
 | MEDIA-04 | Phase 2 | Complete |
 | MEDIA-05 | Phase 2 | Complete |
-| COMP-01 | Phase 3 | Pending |
-| COMP-02 | Phase 3 | Pending |
-| COMP-03 | Phase 3 | Pending |
-| COMP-04 | Phase 3 | Pending |
+| COMP-01 | Phase 3 | Complete |
+| COMP-02 | Phase 3 | Complete |
+| COMP-03 | Phase 3 | Complete |
+| COMP-04 | Phase 3 | Complete |
 | COMP-05 | Phase 3 | Complete |
-| COMP-06 | Phase 3 | Pending |
-| COMP-07 | Phase 3 | Pending |
-| COMP-08 | Phase 3 | Pending |
-| COMP-09 | Phase 3 | Pending |
+| COMP-06 | Phase 3 | Complete |
+| COMP-07 | Phase 3 | Complete |
+| COMP-08 | Phase 3 | Complete |
+| COMP-09 | Phase 3 | Complete |
 | LINK-01 | Phase 3 | Complete |
 | LINK-02 | Phase 3 | Complete |
 | LINK-03 | Phase 3 | Complete |

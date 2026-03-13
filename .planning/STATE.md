@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-03-13T16:41:18.034Z"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-13T16:42:30.580Z"
 last_activity: 2026-03-13 -- Plan 03-03 executed (platform previews and link UI)
 progress:
   total_phases: 6
@@ -52,6 +52,7 @@ Progress: [████████░░] 80%
 
 *Updated after each plan completion*
 | Phase 03 P01 | 7min | 3 tasks | 14 files |
+| Phase 03 P02 | 9min | 2 tasks | 12 files |
 | Phase 03 P03 | 7min | 2 tasks | 6 files |
 
 ## Accumulated Context
@@ -82,6 +83,10 @@ Recent decisions affecting current work:
 - [Phase 03]: Post status auto-set to scheduled when scheduledAt provided, otherwise draft
 - [Phase 03]: Link Insert excludes short_url (GENERATED ALWAYS) and makes short_code optional (trigger-generated)
 - [Phase 03]: Junction table inserts rolled back on failure by deleting the parent post
+- [03-02]: Zustand persist key hitschies-composer for composer draft state in localStorage
+- [03-02]: Platform override tabs only shown when multiple platforms selected
+- [03-02]: Schedule picker uses native date/time inputs (not custom calendar)
+- [03-02]: Media picker uses dialog pattern for selection from library
 - [03-03]: Preview components are props-driven (not store-coupled) for reuse across contexts
 - [03-03]: UTM auto-fill tracks user-edited vs auto-filled fields via ref Set
 - [03-03]: Template selection overwrites all UTM fields as explicit user action
@@ -99,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T16:41:18.026Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-03-13T16:42:30.573Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
