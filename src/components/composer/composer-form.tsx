@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback } from "react"
 import { useComposerStore } from "@/stores/composer-store"
-import { useCreatePost } from "@/hooks/use-posts"
+import { useCreatePost, useUpdatePost } from "@/hooks/use-posts"
 import { useChannels } from "@/hooks/use-channels"
 import { useCampaigns } from "@/hooks/use-campaigns"
 import { useLink } from "@/hooks/use-links"
@@ -62,8 +62,14 @@ function buildPostInput(
   }
 }
 
-export function ComposerForm() {
+type ComposerFormProps = {
+  readonly editPostId?: string
+}
+
+export function ComposerForm({ editPostId }: ComposerFormProps = {}) {
+  const isEditMode = Boolean(editPostId)
   const createPost = useCreatePost()
+  const updatePost = useUpdatePost()
   const reset = useComposerStore((s) => s.reset)
   const selectedChannelIds = useComposerStore((s) => s.selectedChannelIds)
   const scheduledAt = useComposerStore((s) => s.scheduledAt)
@@ -166,12 +172,25 @@ export function ComposerForm() {
       return
     }
 
-    createPost.mutate(result.data, {
-      onSuccess: () => {
-        reset()
-      },
-    })
+    if (isEditMode && editPostId) {
+      updatePost.mutate(
+        { id: editPostId, ...result.data },
+        {
+          onSuccess: () => {
+            reset()
+          },
+        }
+      )
+    } else {
+      createPost.mutate(result.data, {
+        onSuccess: () => {
+          reset()
+        },
+      })
+    }
   }
+
+  const isMutating = createPost.isPending || updatePost.isPending
 
   const canSchedule =
     selectedChannelIds.length > 0 && scheduledAt !== null
@@ -264,17 +283,17 @@ export function ComposerForm() {
         <div className="flex items-center gap-3 border-t pt-4">
           <Button
             variant="outline"
-            disabled={!canSaveDraft || createPost.isPending}
+            disabled={!canSaveDraft || isMutating}
             onClick={() => handleSubmit("draft")}
           >
-            Als Entwurf speichern
+            {isEditMode ? "Entwurf aktualisieren" : "Als Entwurf speichern"}
           </Button>
           <Button
-            disabled={!canSchedule || createPost.isPending}
+            disabled={!canSchedule || isMutating}
             onClick={() => handleSubmit("scheduled")}
           >
             <CalendarClock className="mr-1.5 size-4" />
-            Planen
+            {isEditMode ? "Aktualisieren" : "Planen"}
           </Button>
         </div>
       </div>
