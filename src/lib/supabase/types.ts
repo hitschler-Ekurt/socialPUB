@@ -157,42 +157,105 @@ export type Database = {
       posts: {
         Row: {
           id: string
-          title: string | null
-          body: string | null
-          status: string
+          caption: string | null
+          caption_overrides: Json
+          post_type: "image" | "video" | "carousel" | "text" | "story" | "reel"
+          hashtags: string[]
+          first_comment: string | null
+          status: "draft" | "review" | "approved" | "scheduled" | "published" | "failed"
           scheduled_at: string | null
           published_at: string | null
-          channel_id: string | null
           campaign_id: string | null
           created_by: string | null
+          assigned_to: string | null
+          link_id: string | null
+          update_linkinbio: boolean
+          platform_post_ids: Json
+          publish_errors: Json
           created_at: string
           updated_at: string
         }
         Insert: {
           id?: string
-          title?: string | null
-          body?: string | null
-          status?: string
+          caption?: string | null
+          caption_overrides?: Json
+          post_type?: "image" | "video" | "carousel" | "text" | "story" | "reel"
+          hashtags?: string[]
+          first_comment?: string | null
+          status?: "draft" | "review" | "approved" | "scheduled" | "published" | "failed"
           scheduled_at?: string | null
           published_at?: string | null
-          channel_id?: string | null
           campaign_id?: string | null
           created_by?: string | null
+          assigned_to?: string | null
+          link_id?: string | null
+          update_linkinbio?: boolean
+          platform_post_ids?: Json
+          publish_errors?: Json
           created_at?: string
           updated_at?: string
         }
         Update: {
           id?: string
-          title?: string | null
-          body?: string | null
-          status?: string
+          caption?: string | null
+          caption_overrides?: Json
+          post_type?: "image" | "video" | "carousel" | "text" | "story" | "reel"
+          hashtags?: string[]
+          first_comment?: string | null
+          status?: "draft" | "review" | "approved" | "scheduled" | "published" | "failed"
           scheduled_at?: string | null
           published_at?: string | null
-          channel_id?: string | null
           campaign_id?: string | null
           created_by?: string | null
+          assigned_to?: string | null
+          link_id?: string | null
+          update_linkinbio?: boolean
+          platform_post_ids?: Json
+          publish_errors?: Json
           created_at?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      post_channels: {
+        Row: {
+          post_id: string
+          channel_id: string
+        }
+        Insert: {
+          post_id: string
+          channel_id: string
+        }
+        Update: {
+          post_id?: string
+          channel_id?: string
+        }
+        Relationships: []
+      }
+      post_media: {
+        Row: {
+          id: string
+          post_id: string
+          media_id: string
+          position: number
+          alt_text: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          post_id: string
+          media_id: string
+          position?: number
+          alt_text?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          post_id?: string
+          media_id?: string
+          position?: number
+          alt_text?: string | null
+          created_at?: string
         }
         Relationships: []
       }
@@ -257,34 +320,119 @@ export type Database = {
           utm_medium: string | null
           utm_campaign: string | null
           utm_content: string | null
+          utm_term: string | null
+          full_url: string | null
+          title: string | null
+          campaign_id: string | null
+          expires_at: string | null
+          is_active: boolean
           click_count: number
           created_by: string | null
           created_at: string
+          updated_at: string
         }
         Insert: {
           id?: string
           original_url: string
-          short_code: string
-          short_url?: string | null
+          short_code?: string
           utm_source?: string | null
           utm_medium?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
+          utm_term?: string | null
+          title?: string | null
+          campaign_id?: string | null
+          expires_at?: string | null
+          is_active?: boolean
           click_count?: number
           created_by?: string | null
           created_at?: string
+          updated_at?: string
         }
         Update: {
           id?: string
           original_url?: string
-          short_code?: string
-          short_url?: string | null
           utm_source?: string | null
           utm_medium?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
+          utm_term?: string | null
+          title?: string | null
+          campaign_id?: string | null
+          expires_at?: string | null
+          is_active?: boolean
           click_count?: number
           created_by?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      link_clicks: {
+        Row: {
+          id: string
+          link_id: string
+          clicked_at: string
+          referrer: string | null
+          user_agent: string | null
+          country: string | null
+          city: string | null
+          device_type: string | null
+          ip_hash: string | null
+        }
+        Insert: {
+          id?: string
+          link_id: string
+          clicked_at?: string
+          referrer?: string | null
+          user_agent?: string | null
+          country?: string | null
+          city?: string | null
+          device_type?: string | null
+          ip_hash?: string | null
+        }
+        Update: {
+          id?: string
+          link_id?: string
+          clicked_at?: string
+          referrer?: string | null
+          user_agent?: string | null
+          country?: string | null
+          city?: string | null
+          device_type?: string | null
+          ip_hash?: string | null
+        }
+        Relationships: []
+      }
+      utm_templates: {
+        Row: {
+          id: string
+          name: string
+          utm_source: string | null
+          utm_medium: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          is_default: boolean
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          utm_source?: string | null
+          utm_medium?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          is_default?: boolean
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          utm_source?: string | null
+          utm_medium?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          is_default?: boolean
           created_at?: string
         }
         Relationships: []
