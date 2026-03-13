@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-13T18:35:29.451Z"
-last_activity: 2026-03-13 -- Plan 03-04 executed (link library and composer integration)
+status: in-progress
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-13T19:19:51Z"
+last_activity: 2026-03-13 -- Plan 04-01 executed (calendar views and wave 0 test stubs)
 progress:
   total_phases: 6
   completed_phases: 3
-  total_plans: 10
-  completed_plans: 10
-  percent: 90
+  total_plans: 13
+  completed_plans: 11
+  percent: 85
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen -- mit integrierter URL-Link-Automation
-**Current focus:** Phase 3 Post Composer and Link Engine -- COMPLETE
+**Current focus:** Phase 4 Editorial Calendar and Ideas Board -- IN PROGRESS
 
 ## Current Position
 
-Phase: 3 of 6 (Post Composer and Link Engine) -- COMPLETE
-Plan: 4 of 4 in current phase (complete)
-Status: Phase 03 complete -- all plans executed
-Last activity: 2026-03-13 -- Plan 03-04 executed (link library and composer integration)
+Phase: 4 of 6 (Editorial Calendar and Ideas Board)
+Plan: 1 of 3 in current phase (04-01 complete)
+Status: Plan 04-01 complete -- calendar views and wave 0 test stubs
+Last activity: 2026-03-13 -- Plan 04-01 executed (calendar views and wave 0 test stubs)
 
-Progress: [█████████░] 90%
+Progress: [█████████░] 85%
 
 ## Performance Metrics
 
@@ -55,6 +55,7 @@ Progress: [█████████░] 90%
 | Phase 03 P02 | 9min | 2 tasks | 12 files |
 | Phase 03 P03 | 7min | 2 tasks | 6 files |
 | Phase 03 P04 | 8min | 2 tasks | 4 files |
+| Phase 04 P01 | 7min | 3 tasks | 21 files |
 
 ## Accumulated Context
 
@@ -95,6 +96,10 @@ Recent decisions affecting current work:
 - [03-04]: Expandable table rows for UTM detail instead of separate detail view
 - [03-04]: Preview components receive props from composer store for reactive updates
 - [03-04]: Media URL from file_path via NEXT_PUBLIC_SUPABASE_URL storage pattern
+- [04-01]: Calendar store uses Zustand without persist (ephemeral view state, no localStorage)
+- [04-01]: Posts API expanded select includes post_channels and post_media for calendar cards
+- [04-01]: Week/day views use 60px hourly slots with all-day row for unscheduled-time posts
+- [04-01]: Magenta accent via CSS variable hsl(var(--magenta,330_80%_55%)) for today highlight
 
 ### Pending Todos
 
@@ -109,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T18:35:29.441Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-editorial-calendar-and-ideas-board/04-CONTEXT.md
+Last session: 2026-03-13T19:19:51Z
+Stopped at: Completed 04-01-PLAN.md
+Resume file: .planning/phases/04-editorial-calendar-and-ideas-board/04-01-SUMMARY.md
