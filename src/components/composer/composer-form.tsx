@@ -2,7 +2,8 @@
 
 import { useState, useMemo, useCallback } from "react"
 import { useComposerStore } from "@/stores/composer-store"
-import { useCreatePost, useUpdatePost } from "@/hooks/use-posts"
+import { useCreatePost, useUpdatePost, usePost } from "@/hooks/use-posts"
+import { useQueryClient } from "@tanstack/react-query"
 import { useChannels } from "@/hooks/use-channels"
 import { useCampaigns } from "@/hooks/use-campaigns"
 import { useLink } from "@/hooks/use-links"
@@ -18,12 +19,14 @@ import { CampaignPicker } from "./campaign-picker"
 import { HashtagInserter } from "./hashtag-inserter"
 import { FirstCommentInput } from "./first-comment-input"
 import { SchedulePicker } from "./schedule-picker"
+import { WorkflowActions } from "./workflow-actions"
 import { InstagramPreview } from "@/components/previews/instagram-preview"
 import { TikTokPreview } from "@/components/previews/tiktok-preview"
 import { LinkDialog } from "@/components/links/link-dialog"
 import { CalendarClock, Link2, X } from "lucide-react"
 import type { CreatePostInput } from "@/lib/validations/post"
 import type { Database } from "@/lib/supabase/types"
+import type { PostStatus } from "@/lib/workflow-transitions"
 
 type Media = Database["public"]["Tables"]["media"]["Row"]
 
@@ -70,6 +73,8 @@ export function ComposerForm({ editPostId }: ComposerFormProps = {}) {
   const isEditMode = Boolean(editPostId)
   const createPost = useCreatePost()
   const updatePost = useUpdatePost()
+  const queryClient = useQueryClient()
+  const { data: editPost } = usePost(editPostId)
   const reset = useComposerStore((s) => s.reset)
   const selectedChannelIds = useComposerStore((s) => s.selectedChannelIds)
   const scheduledAt = useComposerStore((s) => s.scheduledAt)
@@ -279,23 +284,42 @@ export function ComposerForm({ editPostId }: ComposerFormProps = {}) {
           <SchedulePicker />
         </section>
 
-        {/* Action bar */}
-        <div className="flex items-center gap-3 border-t pt-4">
-          <Button
-            variant="outline"
-            disabled={!canSaveDraft || isMutating}
-            onClick={() => handleSubmit("draft")}
-          >
-            {isEditMode ? "Entwurf aktualisieren" : "Als Entwurf speichern"}
-          </Button>
-          <Button
-            disabled={!canSchedule || isMutating}
-            onClick={() => handleSubmit("scheduled")}
-          >
-            <CalendarClock className="mr-1.5 size-4" />
-            {isEditMode ? "Aktualisieren" : "Planen"}
-          </Button>
-        </div>
+        {/* Action bar -- hidden for published/scheduled posts */}
+        {!(isEditMode && editPost && (editPost.status === "published" || editPost.status === "scheduled")) && (
+          <div className="flex items-center gap-3 border-t pt-4">
+            <Button
+              variant="outline"
+              disabled={!canSaveDraft || isMutating}
+              onClick={() => handleSubmit("draft")}
+            >
+              {isEditMode ? "Entwurf aktualisieren" : "Als Entwurf speichern"}
+            </Button>
+            <Button
+              disabled={!canSchedule || isMutating}
+              onClick={() => handleSubmit("scheduled")}
+            >
+              <CalendarClock className="mr-1.5 size-4" />
+              {isEditMode ? "Aktualisieren" : "Planen"}
+            </Button>
+          </div>
+        )}
+
+        {/* Workflow actions (edit mode only) */}
+        {isEditMode && editPostId && editPost && (
+          <div className="border-t pt-4">
+            <h3 className="mb-2 text-sm font-medium text-neutral-700">Workflow</h3>
+            <WorkflowActions
+              postId={editPostId}
+              currentStatus={editPost.status as PostStatus}
+              publishErrors={editPost.publish_errors}
+              scheduledAt={editPost.scheduled_at}
+              publishedAt={editPost.published_at}
+              onStatusChange={() => {
+                queryClient.invalidateQueries({ queryKey: ["posts", editPostId] })
+              }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Right column: live previews */}
