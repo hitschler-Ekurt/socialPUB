@@ -1,7 +1,7 @@
 # Requirements: hitschies Publisher
 
 **Defined:** 2026-03-13
-**Core Value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen — mit integrierter URL-Link-Automation
+**Core Value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen -- mit integrierter URL-Link-Automation
 
 ## v1 Requirements
 
@@ -154,13 +154,77 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated during roadmap creation) | | |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| UX-01 | Phase 1 | Pending |
+| UX-04 | Phase 1 | Pending |
+| CHAN-01 | Phase 2 | Pending |
+| CHAN-02 | Phase 2 | Pending |
+| CHAN-03 | Phase 2 | Pending |
+| CHAN-04 | Phase 2 | Pending |
+| CAMP-01 | Phase 2 | Pending |
+| CAMP-02 | Phase 2 | Pending |
+| HASH-01 | Phase 2 | Pending |
+| HASH-02 | Phase 2 | Pending |
+| HASH-03 | Phase 2 | Pending |
+| MEDIA-01 | Phase 2 | Pending |
+| MEDIA-02 | Phase 2 | Pending |
+| MEDIA-03 | Phase 2 | Pending |
+| MEDIA-04 | Phase 2 | Pending |
+| MEDIA-05 | Phase 2 | Pending |
+| COMP-01 | Phase 3 | Pending |
+| COMP-02 | Phase 3 | Pending |
+| COMP-03 | Phase 3 | Pending |
+| COMP-04 | Phase 3 | Pending |
+| COMP-05 | Phase 3 | Pending |
+| COMP-06 | Phase 3 | Pending |
+| COMP-07 | Phase 3 | Pending |
+| COMP-08 | Phase 3 | Pending |
+| COMP-09 | Phase 3 | Pending |
+| LINK-01 | Phase 3 | Pending |
+| LINK-02 | Phase 3 | Pending |
+| LINK-03 | Phase 3 | Pending |
+| LINK-04 | Phase 3 | Pending |
+| LINK-05 | Phase 3 | Pending |
+| LINK-06 | Phase 3 | Pending |
+| LINK-07 | Phase 3 | Pending |
+| LINK-08 | Phase 3 | Pending |
+| LINK-09 | Phase 3 | Pending |
+| CAMP-03 | Phase 3 | Pending |
+| CAL-01 | Phase 4 | Pending |
+| CAL-02 | Phase 4 | Pending |
+| CAL-03 | Phase 4 | Pending |
+| CAL-04 | Phase 4 | Pending |
+| CAL-05 | Phase 4 | Pending |
+| CAL-06 | Phase 4 | Pending |
+| IDEA-01 | Phase 4 | Pending |
+| IDEA-02 | Phase 4 | Pending |
+| IDEA-03 | Phase 4 | Pending |
+| IDEA-04 | Phase 4 | Pending |
+| WRKF-01 | Phase 5 | Pending |
+| WRKF-02 | Phase 5 | Pending |
+| WRKF-03 | Phase 5 | Pending |
+| WRKF-04 | Phase 5 | Pending |
+| WRKF-05 | Phase 5 | Pending |
+| WRKF-06 | Phase 5 | Pending |
+| BIO-01 | Phase 5 | Pending |
+| BIO-02 | Phase 5 | Pending |
+| BIO-03 | Phase 5 | Pending |
+| BIO-04 | Phase 5 | Pending |
+| BIO-05 | Phase 5 | Pending |
+| UX-02 | Phase 6 | Pending |
+| UX-03 | Phase 6 | Pending |
+| UX-05 | Phase 6 | Pending |
+| UX-06 | Phase 6 | Pending |
+| LINK-10 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 50 total
-- Mapped to phases: 0
-- Unmapped: 50
+- Mapped to phases: 50
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-13*
-*Last updated: 2026-03-13 after initial definition*
+*Last updated: 2026-03-13 after roadmap creation*
