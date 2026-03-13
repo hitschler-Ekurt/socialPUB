@@ -10,6 +10,7 @@ import {
   Link as LinkIcon,
   Lightbulb,
   Target,
+  Radio,
   Settings,
   ChevronLeft,
   ChevronRight,
@@ -40,6 +41,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Link: LinkIcon,
   Lightbulb,
   Target,
+  Radio,
   Settings,
 }
 

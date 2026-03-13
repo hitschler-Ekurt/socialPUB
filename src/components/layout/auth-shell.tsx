@@ -6,6 +6,7 @@ import { AppSidebar } from "@/components/layout/app-sidebar"
 import { AppHeader } from "@/components/layout/app-header"
 import { Toaster } from "@/components/ui/sonner"
 import { useUiStore } from "@/stores/ui-store"
+import { QueryProvider } from "@/providers/query-provider"
 
 export function AuthShell({
   children,
@@ -20,17 +21,19 @@ export function AuthShell({
   )
 
   return (
-    <SidebarProvider
-      defaultOpen={!sidebarCollapsed}
-      open={!sidebarCollapsed}
-      onOpenChange={handleOpenChange}
-    >
-      <AppSidebar />
-      <div className="flex flex-1 flex-col">
-        <AppHeader />
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
-      </div>
-      <Toaster />
-    </SidebarProvider>
+    <QueryProvider>
+      <SidebarProvider
+        defaultOpen={!sidebarCollapsed}
+        open={!sidebarCollapsed}
+        onOpenChange={handleOpenChange}
+      >
+        <AppSidebar />
+        <div className="flex flex-1 flex-col">
+          <AppHeader />
+          <main className="flex-1 overflow-y-auto p-6">{children}</main>
+        </div>
+        <Toaster />
+      </SidebarProvider>
+    </QueryProvider>
   )
 }

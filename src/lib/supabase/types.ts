@@ -203,10 +203,14 @@ export type Database = {
           file_path: string
           file_size: number
           mime_type: string
+          media_type: "image" | "video" | "gif"
           width: number | null
           height: number | null
-          alt_text: string | null
+          duration_seconds: number | null
+          thumbnail_path: string | null
+          tags: string[]
           uploaded_by: string | null
+          usage_count: number
           created_at: string
         }
         Insert: {
@@ -215,10 +219,14 @@ export type Database = {
           file_path: string
           file_size: number
           mime_type: string
+          media_type: "image" | "video" | "gif"
           width?: number | null
           height?: number | null
-          alt_text?: string | null
+          duration_seconds?: number | null
+          thumbnail_path?: string | null
+          tags?: string[]
           uploaded_by?: string | null
+          usage_count?: number
           created_at?: string
         }
         Update: {
@@ -227,10 +235,14 @@ export type Database = {
           file_path?: string
           file_size?: number
           mime_type?: string
+          media_type?: "image" | "video" | "gif"
           width?: number | null
           height?: number | null
-          alt_text?: string | null
+          duration_seconds?: number | null
+          thumbnail_path?: string | null
+          tags?: string[]
           uploaded_by?: string | null
+          usage_count?: number
           created_at?: string
         }
         Relationships: []
