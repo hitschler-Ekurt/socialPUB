@@ -80,15 +80,15 @@
 
 ### Campaigns
 
-- [ ] **CAMP-01**: User can create campaigns with name, color, start/end date
-- [ ] **CAMP-02**: User can assign campaigns to posts
+- [x] **CAMP-01**: User can create campaigns with name, color, start/end date
+- [x] **CAMP-02**: User can assign campaigns to posts
 - [ ] **CAMP-03**: Calendar shows campaign colors on post cards
 
 ### Hashtags
 
-- [ ] **HASH-01**: User can create named hashtag sets (e.g., "hitschies Standard", "Karneval")
-- [ ] **HASH-02**: User can insert a hashtag set into a post caption with one click
-- [ ] **HASH-03**: Hashtag sets can be categorized (brand, product, campaign)
+- [x] **HASH-01**: User can create named hashtag sets (e.g., "hitschies Standard", "Karneval")
+- [x] **HASH-02**: User can insert a hashtag set into a post caption with one click
+- [x] **HASH-03**: Hashtag sets can be categorized (brand, product, campaign)
 
 ### Ideas Board
 
@@ -164,11 +164,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHAN-02 | Phase 2 | Complete |
 | CHAN-03 | Phase 2 | Complete |
 | CHAN-04 | Phase 2 | Complete |
-| CAMP-01 | Phase 2 | Pending |
-| CAMP-02 | Phase 2 | Pending |
-| HASH-01 | Phase 2 | Pending |
-| HASH-02 | Phase 2 | Pending |
-| HASH-03 | Phase 2 | Pending |
+| CAMP-01 | Phase 2 | Complete |
+| CAMP-02 | Phase 2 | Complete |
+| HASH-01 | Phase 2 | Complete |
+| HASH-02 | Phase 2 | Complete |
+| HASH-03 | Phase 2 | Complete |
 | MEDIA-01 | Phase 2 | Pending |
 | MEDIA-02 | Phase 2 | Pending |
 | MEDIA-03 | Phase 2 | Pending |
