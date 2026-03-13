@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in-progress
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-13T16:29:10.961Z"
-last_activity: 2026-03-13 -- Plan 03-01 executed (data layer for posts, links, UTM templates)
+status: completed
+stopped_at: Completed 03-03-PLAN.md
+last_updated: "2026-03-13T16:41:18.034Z"
+last_activity: 2026-03-13 -- Plan 03-03 executed (platform previews and link UI)
 progress:
   total_phases: 6
   completed_phases: 2
   total_plans: 10
-  completed_plans: 7
-  percent: 70
+  completed_plans: 9
+  percent: 80
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen -- mit integrierter URL-Link-Automation
-**Current focus:** Phase 3 Post Composer and Link Engine -- data layer complete, UI plans next
+**Current focus:** Phase 3 Post Composer and Link Engine -- previews and link UI complete
 
 ## Current Position
 
 Phase: 3 of 6 (Post Composer and Link Engine)
-Plan: 1 of 4 in current phase (complete)
-Status: Plan 03-01 complete -- data layer ready
-Last activity: 2026-03-13 -- Plan 03-01 executed (data layer for posts, links, UTM templates)
+Plan: 3 of 4 in current phase (complete)
+Status: Plan 03-03 complete -- platform previews and link UI ready
+Last activity: 2026-03-13 -- Plan 03-03 executed (platform previews and link UI)
 
-Progress: [███████░░░] 70%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Progress: [███████░░░] 70%
 
 *Updated after each plan completion*
 | Phase 03 P01 | 7min | 3 tasks | 14 files |
+| Phase 03 P03 | 7min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -81,6 +82,9 @@ Recent decisions affecting current work:
 - [Phase 03]: Post status auto-set to scheduled when scheduledAt provided, otherwise draft
 - [Phase 03]: Link Insert excludes short_url (GENERATED ALWAYS) and makes short_code optional (trigger-generated)
 - [Phase 03]: Junction table inserts rolled back on failure by deleting the parent post
+- [03-03]: Preview components are props-driven (not store-coupled) for reuse across contexts
+- [03-03]: UTM auto-fill tracks user-edited vs auto-filled fields via ref Set
+- [03-03]: Template selection overwrites all UTM fields as explicit user action
 
 ### Pending Todos
 
@@ -95,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T16:29:10.949Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-03-13T16:41:18.026Z
+Stopped at: Completed 03-03-PLAN.md
 Resume file: None
