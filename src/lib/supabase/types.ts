@@ -404,6 +404,57 @@ export type Database = {
         }
         Relationships: []
       }
+      drafts: {
+        Row: {
+          id: string
+          title: string
+          description: string | null
+          status: "idea" | "in_progress" | "ready" | "scheduled"
+          position: number
+          channel_hints: string[]
+          campaign_id: string | null
+          due_date: string | null
+          assigned_to: string | null
+          post_id: string | null
+          tags: string[]
+          created_by: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          description?: string | null
+          status?: "idea" | "in_progress" | "ready" | "scheduled"
+          position?: number
+          channel_hints?: string[]
+          campaign_id?: string | null
+          due_date?: string | null
+          assigned_to?: string | null
+          post_id?: string | null
+          tags?: string[]
+          created_by?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          description?: string | null
+          status?: "idea" | "in_progress" | "ready" | "scheduled"
+          position?: number
+          channel_hints?: string[]
+          campaign_id?: string | null
+          due_date?: string | null
+          assigned_to?: string | null
+          post_id?: string | null
+          tags?: string[]
+          created_by?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       utm_templates: {
         Row: {
           id: string
