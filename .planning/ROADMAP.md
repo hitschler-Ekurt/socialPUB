@@ -80,12 +80,12 @@ Plans:
   2. User can drag and drop a post to reschedule it to a different date/time
   3. User can filter the calendar by channel, status, and campaign, and click a day to quick-add a new post
   4. User can create content ideas, organize them on a Kanban board (Idee / In Bearbeitung / Bereit / Geplant), drag between columns, and promote an idea to a full post
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: Calendar month/week/day views
-- [ ] 04-02: Calendar interactions (drag-drop, filtering, quick-add)
-- [ ] 04-03: Ideas Kanban board
+- [ ] 04-01-PLAN.md — Calendar utilities, store, date-range posts hook, and month/week/day views with post cards
+- [ ] 04-02-PLAN.md — Calendar interactions: drag-drop rescheduling with undo, filtering, quick-add, post detail popover
+- [ ] 04-03-PLAN.md — Ideas board: drafts data layer, Kanban board with drag-drop, inline create, edit dialog, promote-to-post
 
 ### Phase 5: Publishing Pipeline and Link-in-Bio
 **Goal**: Posts auto-publish at scheduled times via Late.dev with robust error handling, the short-link redirect service is live at link.hitschies.de, and the link-in-bio page auto-updates when posts publish
