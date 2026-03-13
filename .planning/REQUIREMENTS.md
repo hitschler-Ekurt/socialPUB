@@ -59,11 +59,11 @@
 
 ### URL-Link-Automation
 
-- [ ] **LINK-01**: User can create a link with auto-generated UTM parameters
+- [x] **LINK-01**: User can create a link with auto-generated UTM parameters
 - [ ] **LINK-02**: UTM source auto-fills from selected channel (instagram/tiktok)
 - [ ] **LINK-03**: UTM campaign auto-fills from post campaign tag
-- [ ] **LINK-04**: User can select from predefined UTM templates
-- [ ] **LINK-05**: System auto-generates a branded short link (link.hitschies.de/abc123)
+- [x] **LINK-04**: User can select from predefined UTM templates
+- [x] **LINK-05**: System auto-generates a branded short link (link.hitschies.de/abc123)
 - [ ] **LINK-06**: Short link redirects to full URL with UTM parameters (302 redirect)
 - [ ] **LINK-07**: System tracks clicks on short links (count, device, referrer)
 - [ ] **LINK-08**: User can view all links in a central link library
@@ -82,7 +82,7 @@
 
 - [x] **CAMP-01**: User can create campaigns with name, color, start/end date
 - [x] **CAMP-02**: User can assign campaigns to posts
-- [ ] **CAMP-03**: Calendar shows campaign colors on post cards
+- [x] **CAMP-03**: Calendar shows campaign colors on post cards
 
 ### Hashtags
 
@@ -183,16 +183,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COMP-07 | Phase 3 | Pending |
 | COMP-08 | Phase 3 | Pending |
 | COMP-09 | Phase 3 | Pending |
-| LINK-01 | Phase 3 | Pending |
+| LINK-01 | Phase 3 | Complete |
 | LINK-02 | Phase 3 | Pending |
 | LINK-03 | Phase 3 | Pending |
-| LINK-04 | Phase 3 | Pending |
-| LINK-05 | Phase 3 | Pending |
+| LINK-04 | Phase 3 | Complete |
+| LINK-05 | Phase 3 | Complete |
 | LINK-06 | Phase 5 | Pending |
 | LINK-07 | Phase 5 | Pending |
 | LINK-08 | Phase 3 | Pending |
 | LINK-09 | Phase 3 | Pending |
-| CAMP-03 | Phase 3 | Pending |
+| CAMP-03 | Phase 3 | Complete |
 | CAL-01 | Phase 4 | Pending |
 | CAL-02 | Phase 4 | Pending |
 | CAL-03 | Phase 4 | Pending |

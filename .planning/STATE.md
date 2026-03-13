@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-03-13T15:51:23.242Z"
-last_activity: 2026-03-13 -- Plan 02-03 executed (media library)
+status: in-progress
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-13T16:29:10.961Z"
+last_activity: 2026-03-13 -- Plan 03-01 executed (data layer for posts, links, UTM templates)
 progress:
   total_phases: 6
   completed_phases: 2
-  total_plans: 6
-  completed_plans: 6
-  percent: 33
+  total_plans: 10
+  completed_plans: 7
+  percent: 70
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Marketing-Team kann Posts fuer Instagram und TikTok planen, erstellen und veroeffentlichen -- mit integrierter URL-Link-Automation
-**Current focus:** Phase 2 Entity Layer complete -- ready for Phase 3 planning
+**Current focus:** Phase 3 Post Composer and Link Engine -- data layer complete, UI plans next
 
 ## Current Position
 
-Phase: 2 of 6 (Entity Layer) -- COMPLETE
-Plan: 3 of 3 in current phase (complete)
-Status: Phase 02 complete
-Last activity: 2026-03-13 -- Plan 02-03 executed (media library)
+Phase: 3 of 6 (Post Composer and Link Engine)
+Plan: 1 of 4 in current phase (complete)
+Status: Plan 03-01 complete -- data layer ready
+Last activity: 2026-03-13 -- Plan 03-01 executed (data layer for posts, links, UTM templates)
 
-Progress: [███░░░░░░░] 33%
+Progress: [███████░░░] 70%
 
 ## Performance Metrics
 
@@ -51,6 +51,7 @@ Progress: [███░░░░░░░] 33%
 - Trend: steady
 
 *Updated after each plan completion*
+| Phase 03 P01 | 7min | 3 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -77,6 +78,9 @@ Recent decisions affecting current work:
 - [02-03]: Select onValueChange accepts string|null in this shadcn/radix version -- handle null gracefully
 - [02-03]: Bulk operations use Promise.all for parallel execution rather than sequential
 - [02-03]: Video thumbnail uploaded to separate signed URL path alongside main file
+- [Phase 03]: Post status auto-set to scheduled when scheduledAt provided, otherwise draft
+- [Phase 03]: Link Insert excludes short_url (GENERATED ALWAYS) and makes short_code optional (trigger-generated)
+- [Phase 03]: Junction table inserts rolled back on failure by deleting the parent post
 
 ### Pending Todos
 
@@ -91,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T15:43:14Z
-Stopped at: Completed 02-03-PLAN.md
-Resume file: .planning/phases/02-entity-layer/02-03-SUMMARY.md
+Last session: 2026-03-13T16:29:10.949Z
+Stopped at: Completed 03-01-PLAN.md
+Resume file: None
