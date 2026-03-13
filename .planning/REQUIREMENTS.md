@@ -188,8 +188,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LINK-03 | Phase 3 | Pending |
 | LINK-04 | Phase 3 | Pending |
 | LINK-05 | Phase 3 | Pending |
-| LINK-06 | Phase 3 | Pending |
-| LINK-07 | Phase 3 | Pending |
+| LINK-06 | Phase 5 | Pending |
+| LINK-07 | Phase 5 | Pending |
 | LINK-08 | Phase 3 | Pending |
 | LINK-09 | Phase 3 | Pending |
 | CAMP-03 | Phase 3 | Pending |

@@ -57,13 +57,12 @@ Plans:
 ### Phase 3: Post Composer and Link Engine
 **Goal**: Users can create fully-featured posts with platform-specific captions, live previews, media attachments, scheduling, and integrated URL-Link-Automation (UTM builder + short links + link library)
 **Depends on**: Phase 2
-**Requirements**: COMP-01, COMP-02, COMP-03, COMP-04, COMP-05, COMP-06, COMP-07, COMP-08, COMP-09, LINK-01, LINK-02, LINK-03, LINK-04, LINK-05, LINK-06, LINK-07, LINK-08, LINK-09, CAMP-03
+**Requirements**: COMP-01, COMP-02, COMP-03, COMP-04, COMP-05, COMP-06, COMP-07, COMP-08, COMP-09, LINK-01, LINK-02, LINK-03, LINK-04, LINK-05, LINK-08, LINK-09, CAMP-03
 **Success Criteria** (what must be TRUE):
   1. User can write a caption with per-platform character count, override per platform (e.g., shorter for TikTok), and see a live platform-specific preview
   2. User can attach media from the library, select target channels, assign a campaign tag, insert a hashtag set, add a first comment, and schedule for a specific date/time
   3. User can create a link with auto-generated UTM parameters (source from channel, campaign from tag), select from UTM templates, and system auto-generates a branded short link at link.hitschies.de
   4. User can browse the central link library showing all links with click counts, associated posts, and campaign
-  5. Short links resolve correctly (302 redirect to full UTM URL) and clicks are tracked
 **Plans**: 4 plans
 
 Plans:
@@ -91,13 +90,14 @@ Plans:
 ### Phase 5: Publishing Pipeline and Link-in-Bio
 **Goal**: Posts auto-publish at scheduled times via Late.dev with robust error handling, the short-link redirect service is live at link.hitschies.de, and the link-in-bio page auto-updates when posts publish
 **Depends on**: Phase 4
-**Requirements**: WRKF-01, WRKF-02, WRKF-03, WRKF-04, WRKF-05, WRKF-06, BIO-01, BIO-02, BIO-03, BIO-04, BIO-05
+**Requirements**: WRKF-01, WRKF-02, WRKF-03, WRKF-04, WRKF-05, WRKF-06, BIO-01, BIO-02, BIO-03, BIO-04, BIO-05, LINK-06, LINK-07
 **Success Criteria** (what must be TRUE):
   1. Post follows full status lifecycle (Draft > In Review > Approved > Scheduled > Published) with submit-for-review, approve/reject with comment, and schedule actions
   2. System auto-publishes scheduled posts at the specified time via Late.dev, and failed publications show error details with retry capability
   3. User can create a branded link-in-bio landing page, add/remove/reorder links via drag-and-drop, and set link expiration dates
   4. When a post with "update bio" enabled publishes, the associated link auto-moves to position 1 on the bio page
   5. Link-in-bio page is publicly accessible at a branded URL
+  6. Short links resolve correctly (302 redirect to full UTM URL) and clicks are tracked
 **Plans**: TBD
 
 Plans:
