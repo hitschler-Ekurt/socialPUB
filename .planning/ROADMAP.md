@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Admin can assign Admin/Editor/Viewer roles, and each role sees appropriate UI (Editor can create, Viewer is read-only)
   3. App shell displays with hitschies branding (Magenta primary, brand typography), collapsible sidebar, and navigation to all major sections
   4. Supabase project is live with complete database schema, RLS policies, and storage buckets configured
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Supabase setup and database schema
-- [ ] 01-02: Auth and role system
-- [ ] 01-03: App shell and design tokens
+- [ ] 01-01-PLAN.md — Project scaffold, Supabase clients, DB schema, RLS policies, design tokens, test framework
+- [ ] 01-02-PLAN.md — Auth system: login, middleware, invite flow, role management API
+- [ ] 01-03-PLAN.md — App shell, sidebar, header, coming-soon pages, dashboard, settings with team management
 
 ### Phase 2: Entity Layer
 **Goal**: Users can manage channels, campaigns, hashtag sets, and media assets -- all prerequisite data that the composer and calendar depend on
@@ -129,7 +129,7 @@ Phases execute in numeric order: 1 > 2 > 3 > 4 > 5 > 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Authentication | 0/3 | Not started | - |
+| 1. Foundation and Authentication | 0/3 | Planning complete | - |
 | 2. Entity Layer | 0/3 | Not started | - |
 | 3. Post Composer and Link Engine | 0/4 | Not started | - |
 | 4. Editorial Calendar and Ideas Board | 0/3 | Not started | - |
