@@ -3,7 +3,7 @@ import { z } from "zod"
 export const createLinkSchema = z.object({
   originalUrl: z.string().url("Ungueltige URL"),
   utmSource: z.string().optional(),
-  utmMedium: z.string().optional().default("social"),
+  utmMedium: z.string().optional(),
   utmCampaign: z.string().optional(),
   utmContent: z.string().optional(),
   utmTerm: z.string().optional(),
