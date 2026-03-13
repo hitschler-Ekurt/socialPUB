@@ -92,10 +92,10 @@
 
 ### Ideas Board
 
-- [ ] **IDEA-01**: User can create content ideas with title and description
-- [ ] **IDEA-02**: Kanban board with 4 columns: Idee, In Bearbeitung, Bereit, Geplant
-- [ ] **IDEA-03**: User can drag ideas between columns
-- [ ] **IDEA-04**: User can promote an idea to a full post in the Composer
+- [x] **IDEA-01**: User can create content ideas with title and description
+- [x] **IDEA-02**: Kanban board with 4 columns: Idee, In Bearbeitung, Bereit, Geplant
+- [x] **IDEA-03**: User can drag ideas between columns
+- [x] **IDEA-04**: User can promote an idea to a full post in the Composer
 
 ### Brand & UX
 
@@ -199,10 +199,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CAL-04 | Phase 4 | Pending |
 | CAL-05 | Phase 4 | Complete |
 | CAL-06 | Phase 4 | Pending |
-| IDEA-01 | Phase 4 | Pending |
-| IDEA-02 | Phase 4 | Pending |
-| IDEA-03 | Phase 4 | Pending |
-| IDEA-04 | Phase 4 | Pending |
+| IDEA-01 | Phase 4 | Complete |
+| IDEA-02 | Phase 4 | Complete |
+| IDEA-03 | Phase 4 | Complete |
+| IDEA-04 | Phase 4 | Complete |
 | WRKF-01 | Phase 5 | Pending |
 | WRKF-02 | Phase 5 | Pending |
 | WRKF-03 | Phase 5 | Pending |

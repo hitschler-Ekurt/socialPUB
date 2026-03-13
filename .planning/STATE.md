@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in-progress
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-13T19:19:51Z"
-last_activity: 2026-03-13 -- Plan 04-01 executed (calendar views and wave 0 test stubs)
+stopped_at: Completed 04-03-PLAN.md (Phase 04 complete)
+last_updated: "2026-03-13T19:50:30Z"
+last_activity: 2026-03-13 -- Plan 04-03 executed (ideas kanban board with drag-and-drop)
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 13
-  completed_plans: 11
-  percent: 85
+  completed_plans: 13
+  percent: 92
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 ## Current Position
 
 Phase: 4 of 6 (Editorial Calendar and Ideas Board)
-Plan: 1 of 3 in current phase (04-01 complete)
-Status: Plan 04-01 complete -- calendar views and wave 0 test stubs
-Last activity: 2026-03-13 -- Plan 04-01 executed (calendar views and wave 0 test stubs)
+Plan: 3 of 3 in current phase (04-03 complete -- phase complete)
+Status: Phase 04 complete -- all 3 plans executed
+Last activity: 2026-03-13 -- Plan 04-03 executed (ideas kanban board with drag-and-drop)
 
-Progress: [█████████░] 85%
+Progress: [█████████░] 92%
 
 ## Performance Metrics
 
@@ -56,6 +56,8 @@ Progress: [█████████░] 85%
 | Phase 03 P03 | 7min | 2 tasks | 6 files |
 | Phase 03 P04 | 8min | 2 tasks | 4 files |
 | Phase 04 P01 | 7min | 3 tasks | 21 files |
+| Phase 04 P02 | 28min | 2 tasks | 12 files |
+| Phase 04 P03 | 27min | 3 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -100,6 +102,15 @@ Recent decisions affecting current work:
 - [04-01]: Posts API expanded select includes post_channels and post_media for calendar cards
 - [04-01]: Week/day views use 60px hourly slots with all-day row for unscheduled-time posts
 - [04-01]: Magenta accent via CSS variable hsl(var(--magenta,330_80%_55%)) for today highlight
+- [04-02]: PointerSensor with 8px distance constraint to distinguish clicks from drags
+- [04-02]: Client-side filtering in useCalendarPosts (not server-side) since posts already fetched for date range
+- [04-02]: PostDetailPopover uses fixed positioning with viewport clamping (shadcn Popover not installed)
+- [04-02]: Composer hydration uses ref guard to prevent re-hydration after URL param clearing
+- [04-02]: setSelectedChannelIds added to composer store for bulk channel assignment during edit hydration
+- [04-03]: useDebounce hook created as reusable utility (not idea-specific)
+- [04-03]: Kanban board uses optimistic local state with server sync via useEffect
+- [04-03]: Undo toast on cross-column moves only (not same-column reorder)
+- [04-03]: Campaign filter Select uses "none" sentinel value for Radix compatibility
 
 ### Pending Todos
 
@@ -114,6 +125,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-13T19:19:51Z
-Stopped at: Completed 04-01-PLAN.md
-Resume file: .planning/phases/04-editorial-calendar-and-ideas-board/04-01-SUMMARY.md
+Last session: 2026-03-13T19:50:30Z
+Stopped at: Completed 04-03-PLAN.md (Phase 04 complete)
+Resume file: .planning/phases/04-editorial-calendar-and-ideas-board/04-03-SUMMARY.md
