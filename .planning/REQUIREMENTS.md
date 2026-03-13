@@ -66,8 +66,8 @@
 - [x] **LINK-05**: System auto-generates a branded short link (link.hitschies.de/abc123)
 - [ ] **LINK-06**: Short link redirects to full URL with UTM parameters (302 redirect)
 - [ ] **LINK-07**: System tracks clicks on short links (count, device, referrer)
-- [ ] **LINK-08**: User can view all links in a central link library
-- [ ] **LINK-09**: Link library shows click count, associated posts, and campaign
+- [x] **LINK-08**: User can view all links in a central link library
+- [x] **LINK-09**: Link library shows click count, associated posts, and campaign
 - [ ] **LINK-10**: User can generate a QR code for any short link
 
 ### Link-in-Bio
@@ -190,8 +190,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LINK-05 | Phase 3 | Complete |
 | LINK-06 | Phase 5 | Pending |
 | LINK-07 | Phase 5 | Pending |
-| LINK-08 | Phase 3 | Pending |
-| LINK-09 | Phase 3 | Pending |
+| LINK-08 | Phase 3 | Complete |
+| LINK-09 | Phase 3 | Complete |
 | CAMP-03 | Phase 3 | Complete |
 | CAL-01 | Phase 4 | Pending |
 | CAL-02 | Phase 4 | Pending |
