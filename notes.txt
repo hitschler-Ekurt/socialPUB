@@ -1,0 +1,32 @@
+  Plan: 05-04 Short-Link Redirect Service        
+  Progress: 1/2 tasks complete                                                                          
+
+  The short-link redirect service has been created in hitschies-link-redirect/:
+  - Next.js 15 route handler resolving short codes from Supabase links table
+  - Click tracking with geo-IP (SHA-256 hashed), fire-and-forget
+  - 302 redirects, 404/410 error handling, input validation
+  - TypeScript type-checks pass cleanly
+
+  To complete deployment later:
+  1. Move to separate repo: cd hitschies-link-redirect && git init && git add . && git commit -m "init: 
+  short-link redirect service"
+  2. Deploy to Vercel, set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY
+  3. Configure DNS: link.hitschies.de → cname.vercel-dns.com
+
+
+    ✓ Phase 05: Publishing Pipeline and Link-in-Bio                                                       
+                                                                                                          
+                                                                                                          
+Score: 13/13 must-haves verified automatically. 7 items need human/deployment testing:                                                                                                                        
+  1. Workflow submit-review flow — click "Zur Review einreichen" as editor, verify status change          
+  2. Rejection comment flow — reject as admin, confirm amber banner with comment in draft                 
+  3. Auto-publish Edge Function — requires deployed Edge Function + LATE_API_KEY + pg_cron SQL            
+  4. Public bio page — verify /bio/[slug] loads without auth in incognito                                 
+  5. Drag-and-drop reorder — reorder bio items, reload, confirm order persists                            
+  6. Expired item filtering — set past expiration, verify hidden on public page                           
+  7. Short-link redirect — requires hitschies-link-redirect deployed to Vercel + DNS                    
+
+  Deployment prerequisites:
+  - pg_cron SQL for scheduled publishing
+  - LATE_API_KEY secret in Supabase
+  - hitschies-link-redirect → separate repo → Vercel → link.hitschies.de DNS CNAME
